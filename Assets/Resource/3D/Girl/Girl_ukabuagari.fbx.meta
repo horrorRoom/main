@@ -1,0 +1,721 @@
+fileFormatVersion: 2
+guid: 1f1882c4c6cfe304b9604f67cb4b3373
+timeCreated: 1454762444
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Girl_all
+    100002: Girl_body
+    100004: Girl_chest
+    100006: Girl_haed
+    100008: Girl_hair_LA1
+    100010: Girl_hair_LA2
+    100012: Girl_hair_LA3
+    100014: Girl_hair_LA4
+    100016: Girl_hair_LB1
+    100018: Girl_hair_LB2
+    100020: Girl_hair_LB3
+    100022: Girl_hair_LB4
+    100024: Girl_hair_LC1
+    100026: Girl_hair_LC2
+    100028: Girl_hair_LC3
+    100030: Girl_hair_LC4
+    100032: Girl_hair_poly1
+    100034: Girl_hair_poly10
+    100036: Girl_hair_poly11
+    100038: Girl_hair_poly12
+    100040: Girl_hair_poly13
+    100042: Girl_hair_poly2
+    100044: Girl_hair_poly3
+    100046: Girl_hair_poly4
+    100048: Girl_hair_poly5
+    100050: Girl_hair_poly6
+    100052: Girl_hair_poly7
+    100054: Girl_hair_poly8
+    100056: Girl_hair_poly9
+    100058: Girl_hair_poly_all
+    100060: Girl_hair_RA1
+    100062: Girl_hair_RA2
+    100064: Girl_hair_RA3
+    100066: Girl_hair_RA4
+    100068: Girl_hair_RB1
+    100070: Girl_hair_RB2
+    100072: Girl_hair_RB3
+    100074: Girl_hair_RB4
+    100076: Girl_hair_RC1
+    100078: Girl_hair_RC2
+    100080: Girl_hair_RC3
+    100082: Girl_hair_RC4
+    100084: Girl_hair_Z1
+    100086: Girl_hair_Z2
+    100088: Girl_hair_Z3
+    100090: Girl_hair_Z4
+    100092: Girl_hip
+    100094: Girl_jaw
+    100096: Girl_L_ankle
+    100098: Girl_L_elbow
+    100100: Girl_L_eye
+    100102: Girl_L_finger_A0
+    100104: Girl_L_finger_A1
+    100106: Girl_L_finger_A2
+    100108: Girl_L_finger_A3
+    100110: Girl_L_finger_B0
+    100112: Girl_L_finger_B1
+    100114: Girl_L_finger_B2
+    100116: Girl_L_finger_B3
+    100118: Girl_L_finger_C0
+    100120: Girl_L_finger_C1
+    100122: Girl_L_finger_C2
+    100124: Girl_L_finger_C3
+    100126: Girl_L_finger_D0
+    100128: Girl_L_finger_D1
+    100130: Girl_L_finger_D2
+    100132: Girl_L_finger_D3
+    100134: Girl_L_finger_O1
+    100136: Girl_L_finger_O2
+    100138: Girl_L_finger_O3
+    100140: Girl_L_foot
+    100142: Girl_L_knee
+    100144: Girl_L_leg
+    100146: Girl_L_scapula
+    100148: Girl_L_shoulder
+    100150: Girl_L_toe
+    100152: Girl_L_wrist
+    100154: Girl_neck
+    100156: Girl_one_piece
+    100158: Girl_poly
+    100160: Girl_R_ankle
+    100162: Girl_R_elbow
+    100164: Girl_R_eye
+    100166: Girl_R_finger_A0
+    100168: Girl_R_finger_A1
+    100170: Girl_R_finger_A2
+    100172: Girl_R_finger_A3
+    100174: Girl_R_finger_B0
+    100176: Girl_R_finger_B1
+    100178: Girl_R_finger_B2
+    100180: Girl_R_finger_B3
+    100182: Girl_R_finger_C0
+    100184: Girl_R_finger_C1
+    100186: Girl_R_finger_C2
+    100188: Girl_R_finger_C3
+    100190: Girl_R_finger_D0
+    100192: Girl_R_finger_D1
+    100194: Girl_R_finger_D2
+    100196: Girl_R_finger_D3
+    100198: Girl_R_finger_O1
+    100200: Girl_R_finger_O2
+    100202: Girl_R_finger_O3
+    100204: Girl_R_foot
+    100206: Girl_R_knee
+    100208: Girl_R_leg
+    100210: Girl_R_scapula
+    100212: Girl_R_shoulder
+    100214: Girl_R_toe
+    100216: Girl_R_wrist
+    100218: Girl_skirt_LA1
+    100220: Girl_skirt_LA2
+    100222: Girl_skirt_LA3
+    100224: Girl_skirt_LA4
+    100226: Girl_skirt_LB1
+    100228: Girl_skirt_LB2
+    100230: Girl_skirt_LB3
+    100232: Girl_skirt_LB4
+    100234: Girl_skirt_LC1
+    100236: Girl_skirt_LC2
+    100238: Girl_skirt_LC3
+    100240: Girl_skirt_LC4
+    100242: Girl_skirt_O1
+    100244: Girl_skirt_O2
+    100246: Girl_skirt_O3
+    100248: Girl_skirt_O4
+    100250: Girl_skirt_RA1
+    100252: Girl_skirt_RA2
+    100254: Girl_skirt_RA3
+    100256: Girl_skirt_RA4
+    100258: Girl_skirt_RB1
+    100260: Girl_skirt_RB2
+    100262: Girl_skirt_RB3
+    100264: Girl_skirt_RB4
+    100266: Girl_skirt_RC1
+    100268: Girl_skirt_RC2
+    100270: Girl_skirt_RC3
+    100272: Girl_skirt_RC4
+    100274: Girl_skirt_Z1
+    100276: Girl_skirt_Z2
+    100278: Girl_skirt_Z3
+    100280: Girl_skirt_Z4
+    100282: //RootNode
+    100284: Girl_waist
+    100286: GR_eyes
+    100288: transform1
+    100290: transform2
+    400000: Girl_all
+    400002: Girl_body
+    400004: Girl_chest
+    400006: Girl_haed
+    400008: Girl_hair_LA1
+    400010: Girl_hair_LA2
+    400012: Girl_hair_LA3
+    400014: Girl_hair_LA4
+    400016: Girl_hair_LB1
+    400018: Girl_hair_LB2
+    400020: Girl_hair_LB3
+    400022: Girl_hair_LB4
+    400024: Girl_hair_LC1
+    400026: Girl_hair_LC2
+    400028: Girl_hair_LC3
+    400030: Girl_hair_LC4
+    400032: Girl_hair_poly1
+    400034: Girl_hair_poly10
+    400036: Girl_hair_poly11
+    400038: Girl_hair_poly12
+    400040: Girl_hair_poly13
+    400042: Girl_hair_poly2
+    400044: Girl_hair_poly3
+    400046: Girl_hair_poly4
+    400048: Girl_hair_poly5
+    400050: Girl_hair_poly6
+    400052: Girl_hair_poly7
+    400054: Girl_hair_poly8
+    400056: Girl_hair_poly9
+    400058: Girl_hair_poly_all
+    400060: Girl_hair_RA1
+    400062: Girl_hair_RA2
+    400064: Girl_hair_RA3
+    400066: Girl_hair_RA4
+    400068: Girl_hair_RB1
+    400070: Girl_hair_RB2
+    400072: Girl_hair_RB3
+    400074: Girl_hair_RB4
+    400076: Girl_hair_RC1
+    400078: Girl_hair_RC2
+    400080: Girl_hair_RC3
+    400082: Girl_hair_RC4
+    400084: Girl_hair_Z1
+    400086: Girl_hair_Z2
+    400088: Girl_hair_Z3
+    400090: Girl_hair_Z4
+    400092: Girl_hip
+    400094: Girl_jaw
+    400096: Girl_L_ankle
+    400098: Girl_L_elbow
+    400100: Girl_L_eye
+    400102: Girl_L_finger_A0
+    400104: Girl_L_finger_A1
+    400106: Girl_L_finger_A2
+    400108: Girl_L_finger_A3
+    400110: Girl_L_finger_B0
+    400112: Girl_L_finger_B1
+    400114: Girl_L_finger_B2
+    400116: Girl_L_finger_B3
+    400118: Girl_L_finger_C0
+    400120: Girl_L_finger_C1
+    400122: Girl_L_finger_C2
+    400124: Girl_L_finger_C3
+    400126: Girl_L_finger_D0
+    400128: Girl_L_finger_D1
+    400130: Girl_L_finger_D2
+    400132: Girl_L_finger_D3
+    400134: Girl_L_finger_O1
+    400136: Girl_L_finger_O2
+    400138: Girl_L_finger_O3
+    400140: Girl_L_foot
+    400142: Girl_L_knee
+    400144: Girl_L_leg
+    400146: Girl_L_scapula
+    400148: Girl_L_shoulder
+    400150: Girl_L_toe
+    400152: Girl_L_wrist
+    400154: Girl_neck
+    400156: Girl_one_piece
+    400158: Girl_poly
+    400160: Girl_R_ankle
+    400162: Girl_R_elbow
+    400164: Girl_R_eye
+    400166: Girl_R_finger_A0
+    400168: Girl_R_finger_A1
+    400170: Girl_R_finger_A2
+    400172: Girl_R_finger_A3
+    400174: Girl_R_finger_B0
+    400176: Girl_R_finger_B1
+    400178: Girl_R_finger_B2
+    400180: Girl_R_finger_B3
+    400182: Girl_R_finger_C0
+    400184: Girl_R_finger_C1
+    400186: Girl_R_finger_C2
+    400188: Girl_R_finger_C3
+    400190: Girl_R_finger_D0
+    400192: Girl_R_finger_D1
+    400194: Girl_R_finger_D2
+    400196: Girl_R_finger_D3
+    400198: Girl_R_finger_O1
+    400200: Girl_R_finger_O2
+    400202: Girl_R_finger_O3
+    400204: Girl_R_foot
+    400206: Girl_R_knee
+    400208: Girl_R_leg
+    400210: Girl_R_scapula
+    400212: Girl_R_shoulder
+    400214: Girl_R_toe
+    400216: Girl_R_wrist
+    400218: Girl_skirt_LA1
+    400220: Girl_skirt_LA2
+    400222: Girl_skirt_LA3
+    400224: Girl_skirt_LA4
+    400226: Girl_skirt_LB1
+    400228: Girl_skirt_LB2
+    400230: Girl_skirt_LB3
+    400232: Girl_skirt_LB4
+    400234: Girl_skirt_LC1
+    400236: Girl_skirt_LC2
+    400238: Girl_skirt_LC3
+    400240: Girl_skirt_LC4
+    400242: Girl_skirt_O1
+    400244: Girl_skirt_O2
+    400246: Girl_skirt_O3
+    400248: Girl_skirt_O4
+    400250: Girl_skirt_RA1
+    400252: Girl_skirt_RA2
+    400254: Girl_skirt_RA3
+    400256: Girl_skirt_RA4
+    400258: Girl_skirt_RB1
+    400260: Girl_skirt_RB2
+    400262: Girl_skirt_RB3
+    400264: Girl_skirt_RB4
+    400266: Girl_skirt_RC1
+    400268: Girl_skirt_RC2
+    400270: Girl_skirt_RC3
+    400272: Girl_skirt_RC4
+    400274: Girl_skirt_Z1
+    400276: Girl_skirt_Z2
+    400278: Girl_skirt_Z3
+    400280: Girl_skirt_Z4
+    400282: //RootNode
+    400284: Girl_waist
+    400286: GR_eyes
+    400288: transform1
+    400290: transform2
+    2300000: Girl_L_eye
+    2300002: Girl_R_eye
+    3300000: Girl_L_eye
+    3300002: Girl_R_eye
+    4300000: Girl_R_eye
+    4300002: Girl_L_eye
+    4300004: Girl_body
+    4300006: Girl_hair_poly13
+    4300008: Girl_hair_poly1
+    4300010: Girl_hair_poly2
+    4300012: Girl_hair_poly3
+    4300014: Girl_hair_poly4
+    4300016: Girl_hair_poly5
+    4300018: Girl_hair_poly6
+    4300020: Girl_hair_poly7
+    4300022: Girl_hair_poly8
+    4300024: Girl_hair_poly9
+    4300026: Girl_hair_poly10
+    4300028: Girl_hair_poly11
+    4300030: Girl_hair_poly12
+    4300032: Girl_one_piece
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Girl_body
+    13700002: Girl_hair_poly1
+    13700004: Girl_hair_poly10
+    13700006: Girl_hair_poly11
+    13700008: Girl_hair_poly12
+    13700010: Girl_hair_poly13
+    13700012: Girl_hair_poly2
+    13700014: Girl_hair_poly3
+    13700016: Girl_hair_poly4
+    13700018: Girl_hair_poly5
+    13700020: Girl_hair_poly6
+    13700022: Girl_hair_poly7
+    13700024: Girl_hair_poly8
+    13700026: Girl_hair_poly9
+    13700028: Girl_one_piece
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Girl_all
+        weight: 1
+      - path: Girl_all/Girl_hip
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_L_leg
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_L_leg/Girl_L_knee
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_L_leg/Girl_L_knee/transform1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_L_leg/Girl_L_knee/transform1/Girl_L_ankle
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_L_leg/Girl_L_knee/transform1/Girl_L_ankle/Girl_L_foot
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_L_leg/Girl_L_knee/transform1/Girl_L_ankle/Girl_L_foot/Girl_L_toe
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_R_leg
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_R_leg/Girl_R_knee
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_R_leg/Girl_R_knee/transform2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_R_leg/Girl_R_knee/transform2/Girl_R_ankle
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_R_leg/Girl_R_knee/transform2/Girl_R_ankle/Girl_R_foot
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_R_leg/Girl_R_knee/transform2/Girl_R_ankle/Girl_R_foot/Girl_R_toe
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LA1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LA1/Girl_skirt_LA2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LA1/Girl_skirt_LA2/Girl_skirt_LA3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LA1/Girl_skirt_LA2/Girl_skirt_LA3/Girl_skirt_LA4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LB1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LB1/Girl_skirt_LB2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LB1/Girl_skirt_LB2/Girl_skirt_LB3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LB1/Girl_skirt_LB2/Girl_skirt_LB3/Girl_skirt_LB4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LC1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LC1/Girl_skirt_LC2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LC1/Girl_skirt_LC2/Girl_skirt_LC3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_LC1/Girl_skirt_LC2/Girl_skirt_LC3/Girl_skirt_LC4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_O1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_O1/Girl_skirt_O2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_O1/Girl_skirt_O2/Girl_skirt_O3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_O1/Girl_skirt_O2/Girl_skirt_O3/Girl_skirt_O4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RA1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RA1/Girl_skirt_RA2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RA1/Girl_skirt_RA2/Girl_skirt_RA3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RA1/Girl_skirt_RA2/Girl_skirt_RA3/Girl_skirt_RA4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RB1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RB1/Girl_skirt_RB2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RB1/Girl_skirt_RB2/Girl_skirt_RB3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RB1/Girl_skirt_RB2/Girl_skirt_RB3/Girl_skirt_RB4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RC1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RC1/Girl_skirt_RC2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RC1/Girl_skirt_RC2/Girl_skirt_RC3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_RC1/Girl_skirt_RC2/Girl_skirt_RC3/Girl_skirt_RC4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_Z1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_Z1/Girl_skirt_Z2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_Z1/Girl_skirt_Z2/Girl_skirt_Z3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_skirt_Z1/Girl_skirt_Z2/Girl_skirt_Z3/Girl_skirt_Z4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_A0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_A0/Girl_L_finger_A1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_A0/Girl_L_finger_A1/Girl_L_finger_A2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_A0/Girl_L_finger_A1/Girl_L_finger_A2/Girl_L_finger_A3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_B0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_B0/Girl_L_finger_B1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_B0/Girl_L_finger_B1/Girl_L_finger_B2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_B0/Girl_L_finger_B1/Girl_L_finger_B2/Girl_L_finger_B3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_C0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_C0/Girl_L_finger_C1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_C0/Girl_L_finger_C1/Girl_L_finger_C2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_C0/Girl_L_finger_C1/Girl_L_finger_C2/Girl_L_finger_C3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_D0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_D0/Girl_L_finger_D1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_D0/Girl_L_finger_D1/Girl_L_finger_D2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_D0/Girl_L_finger_D1/Girl_L_finger_D2/Girl_L_finger_D3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_O1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_O1/Girl_L_finger_O2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_L_scapula/Girl_L_shoulder/Girl_L_elbow/Girl_L_wrist/Girl_L_finger_O1/Girl_L_finger_O2/Girl_L_finger_O3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LA1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LA1/Girl_hair_LA2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LA1/Girl_hair_LA2/Girl_hair_LA3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LA1/Girl_hair_LA2/Girl_hair_LA3/Girl_hair_LA4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LB1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LB1/Girl_hair_LB2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LB1/Girl_hair_LB2/Girl_hair_LB3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LB1/Girl_hair_LB2/Girl_hair_LB3/Girl_hair_LB4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LC1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LC1/Girl_hair_LC2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LC1/Girl_hair_LC2/Girl_hair_LC3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_LC1/Girl_hair_LC2/Girl_hair_LC3/Girl_hair_LC4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RA1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RA1/Girl_hair_RA2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RA1/Girl_hair_RA2/Girl_hair_RA3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RA1/Girl_hair_RA2/Girl_hair_RA3/Girl_hair_RA4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RB1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RB1/Girl_hair_RB2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RB1/Girl_hair_RB2/Girl_hair_RB3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RB1/Girl_hair_RB2/Girl_hair_RB3/Girl_hair_RB4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RC1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RC1/Girl_hair_RC2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RC1/Girl_hair_RC2/Girl_hair_RC3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_RC1/Girl_hair_RC2/Girl_hair_RC3/Girl_hair_RC4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_Z1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_Z1/Girl_hair_Z2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_Z1/Girl_hair_Z2/Girl_hair_Z3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_hair_Z1/Girl_hair_Z2/Girl_hair_Z3/Girl_hair_Z4
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/Girl_jaw
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/GR_eyes
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/GR_eyes/Girl_L_eye
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_neck/Girl_haed/GR_eyes/Girl_R_eye
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_A0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_A0/Girl_R_finger_A1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_A0/Girl_R_finger_A1/Girl_R_finger_A2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_A0/Girl_R_finger_A1/Girl_R_finger_A2/Girl_R_finger_A3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_B0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_B0/Girl_R_finger_B1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_B0/Girl_R_finger_B1/Girl_R_finger_B2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_B0/Girl_R_finger_B1/Girl_R_finger_B2/Girl_R_finger_B3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_C0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_C0/Girl_R_finger_C1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_C0/Girl_R_finger_C1/Girl_R_finger_C2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_C0/Girl_R_finger_C1/Girl_R_finger_C2/Girl_R_finger_C3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_D0
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_D0/Girl_R_finger_D1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_D0/Girl_R_finger_D1/Girl_R_finger_D2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_D0/Girl_R_finger_D1/Girl_R_finger_D2/Girl_R_finger_D3
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_O1
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_O1/Girl_R_finger_O2
+        weight: 1
+      - path: Girl_all/Girl_hip/Girl_waist/Girl_chest/Girl_R_scapula/Girl_R_shoulder/Girl_R_elbow/Girl_R_wrist/Girl_R_finger_O1/Girl_R_finger_O2/Girl_R_finger_O3
+        weight: 1
+      - path: Girl_poly
+        weight: 1
+      - path: Girl_poly/Girl_body
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly1
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly2
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly3
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly4
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly5
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly6
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly7
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly8
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly9
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly10
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly11
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly12
+        weight: 1
+      - path: Girl_poly/Girl_hair_poly_all/Girl_hair_poly13
+        weight: 1
+      - path: Girl_poly/Girl_one_piece
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Kamiura
+  - CheckPoint
+  - Search
+  - Logo
+  - Goal
+  - Save
+  - Room
+  - HitAreaCheck
+  - Test
+  - GameManager
+  - Fade
+  - PaintObj
+  - Cylinder
+  - Item
+  - HorrorItem
+  - HorrorItemUI
+  - HorrorSystem
+  - MouseMark
+  - LostWorldEffect
+  - MouseSensitivity
+  - SwitchRoomColl
+  - HelpManager
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - CheckPoint
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

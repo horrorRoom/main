@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 4a85e581b4d30cb42952388423d58495
+timeCreated: 1454762445
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Girl_body
+    100002: Girl_GR
+    100004: Girl_hair_poly1
+    100006: Girl_hair_poly10
+    100008: Girl_hair_poly11
+    100010: Girl_hair_poly12
+    100012: Girl_hair_poly13
+    100014: Girl_hair_poly2
+    100016: Girl_hair_poly3
+    100018: Girl_hair_poly4
+    100020: Girl_hair_poly5
+    100022: Girl_hair_poly6
+    100024: Girl_hair_poly7
+    100026: Girl_hair_poly8
+    100028: Girl_hair_poly9
+    100030: Girl_hair_poly_all
+    100032: Girl_L_eye
+    100034: Girl_one_piece
+    100036: Girl_R_eye
+    100038: GR_eyes
+    100040: //RootNode
+    400000: Girl_body
+    400002: Girl_GR
+    400004: Girl_hair_poly1
+    400006: Girl_hair_poly10
+    400008: Girl_hair_poly11
+    400010: Girl_hair_poly12
+    400012: Girl_hair_poly13
+    400014: Girl_hair_poly2
+    400016: Girl_hair_poly3
+    400018: Girl_hair_poly4
+    400020: Girl_hair_poly5
+    400022: Girl_hair_poly6
+    400024: Girl_hair_poly7
+    400026: Girl_hair_poly8
+    400028: Girl_hair_poly9
+    400030: Girl_hair_poly_all
+    400032: Girl_L_eye
+    400034: Girl_one_piece
+    400036: Girl_R_eye
+    400038: GR_eyes
+    400040: //RootNode
+    2300000: Girl_body
+    2300002: Girl_hair_poly1
+    2300004: Girl_hair_poly10
+    2300006: Girl_hair_poly11
+    2300008: Girl_hair_poly12
+    2300010: Girl_hair_poly13
+    2300012: Girl_hair_poly2
+    2300014: Girl_hair_poly3
+    2300016: Girl_hair_poly4
+    2300018: Girl_hair_poly5
+    2300020: Girl_hair_poly6
+    2300022: Girl_hair_poly7
+    2300024: Girl_hair_poly8
+    2300026: Girl_hair_poly9
+    2300028: Girl_L_eye
+    2300030: Girl_one_piece
+    2300032: Girl_R_eye
+    3300000: Girl_body
+    3300002: Girl_hair_poly1
+    3300004: Girl_hair_poly10
+    3300006: Girl_hair_poly11
+    3300008: Girl_hair_poly12
+    3300010: Girl_hair_poly13
+    3300012: Girl_hair_poly2
+    3300014: Girl_hair_poly3
+    3300016: Girl_hair_poly4
+    3300018: Girl_hair_poly5
+    3300020: Girl_hair_poly6
+    3300022: Girl_hair_poly7
+    3300024: Girl_hair_poly8
+    3300026: Girl_hair_poly9
+    3300028: Girl_L_eye
+    3300030: Girl_one_piece
+    3300032: Girl_R_eye
+    4300000: Girl_body
+    4300002: Girl_hair_poly13
+    4300004: Girl_hair_poly1
+    4300006: Girl_hair_poly2
+    4300008: Girl_hair_poly3
+    4300010: Girl_hair_poly4
+    4300012: Girl_hair_poly5
+    4300014: Girl_hair_poly6
+    4300016: Girl_hair_poly7
+    4300018: Girl_hair_poly8
+    4300020: Girl_hair_poly9
+    4300022: Girl_hair_poly10
+    4300024: Girl_hair_poly11
+    4300026: Girl_hair_poly12
+    4300028: Girl_one_piece
+    4300030: Girl_R_eye
+    4300032: Girl_L_eye
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
