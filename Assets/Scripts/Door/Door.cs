@@ -4,24 +4,21 @@
 using UnityEngine;
 using System.Collections;
 
-public class Door : MonoBehaviour
+public class Door : DoorBase
 {
-    public bool mIsOpenOnly;
-    public Transform mReferencePoint;
-    public float mRotateAngle;
-    public float mSpeed;
+    [SerializeField]
+    private Transform mReferencePoint;
+    [SerializeField]
+    private float mRotateAngle;
 
-    private float mAngle;
-    private bool mIsOpen;
+    private float mAngle = 0.0f;
 
     //押し出し用当たり判定
     private GameObject mExtrusion;
 
-    // Use this for initialization
-
     //ドアを開ける音
     [SerializeField]
-    private AudioSource OpenDoor;
+    private AudioSource DoorSound;
     //閉まる音
     [SerializeField]
     private AudioClip cloose;
@@ -31,33 +28,33 @@ public class Door : MonoBehaviour
     //ドアが開く音
     [SerializeField]
     private AudioClip open_door;
-    //開けている最中
-    public bool isOpenNow = false;
 
     //ループする位置
     [SerializeField]
     GameObject LoopPoint;
 
-    //ゴール用のドアかどうか
-    [SerializeField]
-    bool isGoalDoor=false;
-
+    /*********************************************************/
+    // Use this for initialization
+    /*********************************************************/
     void Start()
     {
+        mPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        mGoal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
+
         mAngle = 0.0f;
         mIsOpen = false;
         mExtrusion = gameObject.transform.Find("Extrusion").gameObject;
         mExtrusion.SetActive(false);
     }
 
+    /*********************************************************/
     // Update is called once per frame
+    /*********************************************************/
     void Update()
     {
-        mExtrusion = gameObject.transform.Find("Extrusion").gameObject;
-
         DoorCloss();
 
-        if (mIsOpen == true)
+        if (mIsOpen)
         {
             mExtrusion.SetActive(true);
             mAngle = Mathf.Min(mAngle + Mathf.Abs(mSpeed * Time.deltaTime), Mathf.Abs(mRotateAngle));
@@ -79,22 +76,24 @@ public class Door : MonoBehaviour
         }
     }
 
+    /*********************************************************/
     //ドアを開けた時のアクション
-    public void Action()
+    /*********************************************************/
+    public override void Action()
     {
         //SE
-        if (!this.gameObject.GetComponent<Door>().enabled) OpenDoor.GetComponent<AudioSource>().clip = lock_door;
-        else {
-            OpenDoor.GetComponent<AudioSource>().clip = open_door;
-        }
+        if (!gameObject.GetComponent<Door>().enabled) DoorSound.clip = lock_door;
+        else DoorSound.clip = open_door;
 
-        OpenDoor.Play();
+        isOpenNow = true;
+
+        DoorSound.Play();
         if (mExtrusion != null) mExtrusion.SetActive(true);
         //ゴール演出
         if (isGoalDoor)
         {
             //フェードアウトさせる
-            GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>().GoalDoorOpen();
+            mGoal.GoalDoorOpen();
             return;
         }
 
@@ -105,32 +104,31 @@ public class Door : MonoBehaviour
             return;
         }
 
-        if (!(mIsOpenOnly == true && mIsOpen == true))
-        {
-            mIsOpen = !mIsOpen;
-        }
+        if (!(mIsOpenOnly && mIsOpen))　 mIsOpen = !mIsOpen;
     }
 
+    /*********************************************************/
     //ループアクション
+    /*********************************************************/
     void LoopAction()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        Vector3 heading = transform.position - player.transform.position;
+        Vector3 heading = transform.position - mPlayer.position;
         //距離
         float distance = heading.magnitude;
         //方向
         Vector3 direction = heading / distance;
         //プレイヤーを移動
-        player.transform.position = LoopPoint.transform.position - direction * 2;
+        mPlayer.position = LoopPoint.transform.position - direction * 2;
         //ドアを開けた状態にする
         LoopPoint.GetComponent<Door>().mIsOpen = true;
     }
 
+    /*********************************************************/
     //ドアを閉じる
+    /*********************************************************/
     void DoorCloss()
     {
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 8.0f)
+        if (Vector3.Distance(transform.position, mPlayer.position) > 8.0f)
         {
             mIsOpen = false;
             mExtrusion.SetActive(false);

@@ -1,39 +1,47 @@
-﻿using UnityEngine;
+﻿/*********************************************************/
+//時間でドアを開ける
+/*********************************************************/
+using UnityEngine;
 using System.Collections;
 
 public class TimeOpenDoor : MonoBehaviour {
     [SerializeField]
     private Vector3 position;
     [SerializeField]
-    private float stopTime = 0;
+    private float mStopTime = 0;
     [SerializeField]
-    private float reloadTime=0;
+    private float mReloadTime=0;
 
-	// Use this for initialization
-	void Start () {
-        position = GameObject.FindGameObjectWithTag("Player").transform.position;
+    Transform mPlayerTransform;
+    Fade mFade;
+
+    /*********************************************************/
+    // Use this for initialization
+    /*********************************************************/
+    void Start ()
+    {
+        mFade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Fade>();
+        mPlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        position = mPlayerTransform.position;
     }
 
+    /*********************************************************/
     // Update is called once per frame
-    void Update() {
+    /*********************************************************/
+    void Update()
+    {
         //フェードアウトが完了していなかったら何もしない
-        if (GameObject.FindGameObjectWithTag("Fade").GetComponent<Fade>().isStart) return;
+        if (mFade.isStart) return;
 
-        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        if (mReloadTime > 0.0f)  mReloadTime -= 1.0f * Time.deltaTime;
 
-        if (reloadTime > 0.0f) { reloadTime -= 1.0f * Time.deltaTime; }
-
-        if (Vector3.Distance(position, playerPosition) < 1.0f && reloadTime <= 0) { stopTime += 1.0f * Time.deltaTime; }
-        else if(reloadTime <= 0.0f){
-            reloadTime = 1.0f;
-            position = playerPosition;
+        if (Vector3.Distance(position, mPlayerTransform.position) < 1.0f && mReloadTime <= 0) mStopTime += 1.0f * Time.deltaTime;
+        else if(mReloadTime <= 0.0f){
+            mReloadTime = 1.0f;
+            position = mPlayerTransform.position;
         }
 
 
-        if (stopTime > 10.0f)
-        {
-            gameObject.GetComponent<Door>().enabled = true;
-        }
-
+        if (mStopTime > 10.0f) gameObject.GetComponent<Door>().enabled = true;
     }
 }

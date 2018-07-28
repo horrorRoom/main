@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 33999253554710096}
   - component: {fileID: 136700064440252644}
   - component: {fileID: 23250408227193526}
+  - component: {fileID: 114342045496601366}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Cylinder
@@ -109,7 +110,7 @@ GameObject:
   - component: {fileID: 65452630759848354}
   - component: {fileID: 23852077248441432}
   m_Layer: 0
-  m_Name: DoorRotation (1)
+  m_Name: GoalDoorRotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,6 +309,7 @@ GameObject:
   - component: {fileID: 33276064480920122}
   - component: {fileID: 136378001559759148}
   - component: {fileID: 23225423980879134}
+  - component: {fileID: 114929055237943426}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -444,7 +446,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732579107441432}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -23.21, y: -3.6, z: -26.75}
+  m_LocalPosition: {x: -39.75, y: -0.3199997, z: -50.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4951138751998036}
@@ -1879,16 +1881,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mIsOpenOnly: 0
+  mSpeed: -85
+  isGoalDoor: 1
+  isOpenNow: 0
   mReferencePoint: {fileID: 4359768847540842}
   mRotateAngle: 120
-  mSpeed: -85
-  OpenDoor: {fileID: 82637240644575666}
-  cloose: {fileID: 0}
-  lock_door: {fileID: 0}
-  open_door: {fileID: 0}
-  isOpenNow: 0
+  DoorSound: {fileID: 0}
+  cloose: {fileID: 8300000, guid: 506304c9b9ac1e6469dc166f0986f59a, type: 3}
+  lock_door: {fileID: 8300000, guid: d95285ef83ad1864c9614da35d4f6db5, type: 3}
+  open_door: {fileID: 8300000, guid: 9ee77206cb3545545bbc9d703068c4dd, type: 3}
   LoopPoint: {fileID: 0}
-  isGoalDoor: 1
+--- !u!114 &114342045496601366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271113062480096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2ae86d27a3ca542981cc09142a00e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mDoor: {fileID: 0}
 --- !u!114 &114513537955320678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7245,6 +7259,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoor: 1
+--- !u!114 &114929055237943426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783994051021862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2ae86d27a3ca542981cc09142a00e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mDoor: {fileID: 0}
 --- !u!136 &136155831819340934
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -6,38 +6,57 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: d264c516c2f5fba4a88ea064981f53e8
+  - enabled: 1
     path: Assets/Scenes/Start.unity
+    guid: 27b30065f24d35c4cae9d9f98e16fd5e
   - enabled: 1
     path: Assets/Scenes/TeamLogo.unity
+    guid: 7943112abd81a754ea190adb5947fc4e
   - enabled: 1
     path: Assets/Scenes/Title.unity
+    guid: 9df03a2e722accf4bbc15d4144de9beb
   - enabled: 1
     path: Assets/Scenes/Option.unity
+    guid: 767b6a01cf265184e9977c60ee0f9898
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
+    guid: 3d307563fe719534da542b7384ba2daf
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
-  - enabled: 1
-    path: Assets/Scenes/Stage2.unity
+    guid: 997b2ed5eefba194593eb719ec09cfc6
   - enabled: 1
     path: Assets/Scenes/Stage3.unity
+    guid: 095cb86ec161b6c48bb1d8e98f1aff34
   - enabled: 1
     path: Assets/Scenes/Stage4.unity
+    guid: 1262d3dc7b7457140aa1becfd227dc88
   - enabled: 1
     path: Assets/Scenes/Stage5.unity
+    guid: 6bebf2f8e3e1c1c44a901e24180917ad
   - enabled: 1
     path: Assets/Scenes/Stage6.unity
+    guid: 79b62ad372f0e3f46af1211e91bea08a
   - enabled: 1
     path: Assets/Scenes/Stage7.unity
+    guid: 33f469c0bf4e2ee4e97a995d27e174da
   - enabled: 1
     path: Assets/Scenes/Stage8.unity
+    guid: 9c496f75e5451e341af6e3d9daf194a4
   - enabled: 1
     path: Assets/Scenes/Stage9.unity
+    guid: 526734a656e8a104b86c32ef4fa541ac
   - enabled: 1
     path: Assets/Scenes/Stage10.unity
+    guid: 35c2a7cabe0ce79429e041095a96b28a
   - enabled: 1
     path: Assets/Scenes/StageLast.unity
+    guid: eb23436acc885aa41bda083fe63fe65a
   - enabled: 1
     path: Assets/Scenes/HappyEnd.unity
+    guid: 69e6fe43b5381c2428abb102c94142dc
   - enabled: 1
     path: Assets/yama_tasku/Production_EndA/EndA.unity
+    guid: 1ff2731df7130664bac161b6e2260e2f
+  m_configObjects: {}

@@ -753,7 +753,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-2516224
+  m_Name: pb_Mesh-2024
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -5955,17 +5955,17 @@ Prefab:
     - target: {fileID: 114403956740515018, guid: 78ff1751aae33a744833926e86a9412d,
         type: 2}
       propertyPath: m_selectedFaces.Array.size
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114403956740515018, guid: 78ff1751aae33a744833926e86a9412d,
         type: 2}
       propertyPath: m_SelectedEdges.Array.size
-      value: 28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114403956740515018, guid: 78ff1751aae33a744833926e86a9412d,
         type: 2}
       propertyPath: m_selectedTriangles.Array.size
-      value: 28
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4121950004591028, guid: 78ff1751aae33a744833926e86a9412d, type: 2}
       propertyPath: m_LocalPosition.x

@@ -1,51 +1,52 @@
-﻿using UnityEngine;
+﻿/*********************************************************/
+//Rayでオブジェクトを認識した際
+/*********************************************************/
+using UnityEngine;
 using System.Collections;
 
 public class RayHitObject : MonoBehaviour {
 	private Ray mRay;
 	private RaycastHit mRayHit;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    /*********************************************************/
+    // Use this for initialization
+    /*********************************************************/
+    void Start () {}
+
+    /*********************************************************/
+    // Update is called once per frame
+    /*********************************************************/
+    void Update () 
 	{
 		mRay = new Ray(transform.position, transform.forward);
 		if(Physics.Raycast(mRay,out mRayHit,2.0f))
 		{
+            GameObject rayHitObject = mRayHit.collider.gameObject;
+
             //ホラーアイテム
-            if (mRayHit.collider.gameObject.tag == "HorrorItem")
+            if (rayHitObject.tag == "HorrorItem")
             {
-                mRayHit.collider.gameObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled=true;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    mRayHit.collider.gameObject.GetComponent<HorrorItemDraw>().Play();
-                }
+                rayHitObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled=true;
+                if (Input.GetMouseButtonDown(0)) rayHitObject.GetComponent<HorrorItemDraw>().Play();
             }
 
             //ホラーシステム
-            if (mRayHit.collider.gameObject.tag == "HorrorSystem")
+            if (rayHitObject.tag == "HorrorSystem")
             {
-                mRayHit.collider.gameObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled = true;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    mRayHit.collider.gameObject.GetComponent<HorrorSystemManager>().Play();
-                }
+                rayHitObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled = true;
+                if (Input.GetMouseButtonDown(0)) rayHitObject.GetComponent<HorrorSystemManager>().Play();
             }
 
-                //ドアノブ
-                if (mRayHit.collider.gameObject.tag == "Cylinder")
+            //ドアノブ
+            if (rayHitObject.tag == "Cylinder")
 			{
-                if(mRayHit.collider.transform.parent.gameObject.GetComponent<Door>().isOpenNow) return;
-                
-                mRayHit.collider.gameObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled = true;
+                //ドア
+                DoorBase door = rayHitObject.GetComponent<DoorKnob>().Door();
+                if(door.IsOpenNow()) return;
 
-                if (Input.GetMouseButtonDown(0)){
-					mRayHit.collider.transform.parent.gameObject.GetComponent<Door>().Action();
-				}
+                rayHitObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled = true;
+
+                if (Input.GetMouseButtonDown(0)) door.Action();
 			}
 		}
 	}
