@@ -20,9 +20,9 @@ public abstract class DoorBase : MonoBehaviour {
     [SerializeField]
     protected bool isGoalDoor = false;
 
-    //開けている最中
+    //ドアを固定する
     [SerializeField]
-    protected bool isOpenNow = false;
+    protected bool isLockDoor = false;
 
     //プレイヤー
     protected Transform mPlayer;
@@ -35,7 +35,12 @@ public abstract class DoorBase : MonoBehaviour {
     public abstract void Action();
 
     /*********************************************************/
-    //ドアを閉じる
+    //ドアを開いたり開けたりできなくする
     /*********************************************************/
-    public bool IsOpenNow() { return isOpenNow; }
+    public bool IsLockDoor() { return isLockDoor; }
+
+    /*********************************************************/
+    //ドアを閉める
+    /*********************************************************/
+    public void CloseDoor() { mIsOpen = false; }
 }

@@ -21,6 +21,10 @@ public class SideDoor : DoorBase
     [SerializeField]
     private AudioClip open_door;
 
+    //オートの処理があった場合
+    [SerializeField]
+    private DoorAutoClause doorAutoClause;
+
     const float mOpenPositionX = 1.75f;
 
     /*********************************************************/
@@ -28,6 +32,7 @@ public class SideDoor : DoorBase
     /*********************************************************/
     void Start ()
     {
+        doorAutoClause = GetComponent<DoorAutoClause>();
         mPlayer = GameObject.FindGameObjectWithTag("Player").transform;
         mGoal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
     }
@@ -43,7 +48,6 @@ public class SideDoor : DoorBase
             if (mDoor.localPosition.x >= mOpenPositionX)
             {
                 mDoor.localPosition = new Vector3(mOpenPositionX, 0, 0);
-                isOpenNow = false;
             }
         }
         else
@@ -52,13 +56,14 @@ public class SideDoor : DoorBase
             if (mDoor.localPosition.x <= 0)
             {
                 mDoor.localPosition = new Vector3(0,0,0);
-                isOpenNow = false;
             }
         }
     }
 
     /*********************************************************/
-    //ドアを開けた時のアクション
+    /// <summary>
+    /// ドアを開けた時のアクション
+    /// </summary>
     /*********************************************************/
     public override void Action()
     {

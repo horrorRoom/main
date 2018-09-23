@@ -18,6 +18,8 @@ public class Goal : MonoBehaviour {
     private bool isFade = false;
     //ドアノブをまわしたかどうか
     private bool isOpen=false;
+    //プレイヤー
+    PlayerMove player;
 
     /*==外部参照変数==*/
     public bool isGoal = false;
@@ -28,6 +30,8 @@ public class Goal : MonoBehaviour {
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
+
         fade = GameObject.FindGameObjectWithTag("Fade");
         if (SceneManager.GetActiveScene().name == "Stage1") {
             GameObject[] obj = GameObject.FindGameObjectsWithTag("HelpManager");
@@ -50,22 +54,25 @@ public class Goal : MonoBehaviour {
             //プレイヤーが触れたらゴール
             isGoal = true;
 
+            //ステージ１のhelpが出てくる演出のトリガー
             if (SceneManager.GetActiveScene().name == "Stage1")
             {
-                for (int i = 0; i < 3; i++)
-                {
-                    helpManager[i].goal = true;
-                }
+                for (int i = 0; i < 3; i++) helpManager[i].goal = true;
             }
         }
     }
 
+    /*********************************************************/
+    //ドアを開ける処理
+    /*********************************************************/
     public void GoalDoorOpen() {
         isOpen = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>().PlayerStateEffect();
+        player.PlayerStateEffect();
     }
 
+    /*********************************************************/
     //フェードアウト
+    /*********************************************************/
     void FadeOut()
     {
         //エラーチェック
@@ -76,9 +83,8 @@ public class Goal : MonoBehaviour {
         //フェードアウトが完了したら次のシーンへ
         if (!fade.GetComponent<Fade>().isEnd && isFade) Application.LoadLevel(nextSceneName);
 
-        
-        //数秒たったらフェードアウトさせる
-        time += Time.deltaTime;
+         //数秒たったらフェードアウトさせる
+         time += Time.deltaTime;
         if (time >= waitTime && !isFade)
         {
             fade.GetComponent<Fade>().isEnd = true;

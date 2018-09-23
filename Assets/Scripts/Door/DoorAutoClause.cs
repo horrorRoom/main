@@ -1,16 +1,14 @@
 ﻿/*********************************************************/
-//なにかを押した時のシステム
+//ゴール時の自動でドアが閉じる演出
 /*********************************************************/
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class HorrorSystemManager : MonoBehaviour {
-
+public class DoorAutoClause : MonoBehaviour {
+    //ドアが閉まるエリア
     [SerializeField]
-    int system=0;
-
-    [SerializeField]
-    GameObject []target;
+    private DoorBase door;
 
     /*********************************************************/
     // Use this for initialization
@@ -23,21 +21,15 @@ public class HorrorSystemManager : MonoBehaviour {
     void Update () {}
 
     /*********************************************************/
-    //ホラー演出
+    /// <summary>
+    /// プレイヤーが入っていたらドアを閉める
+    /// </summary>
     /*********************************************************/
-    public void Play()
+    public void OnTriggerEnter(Collider other)
     {
-        //ボタンを押したらカミウラーを呼ぶ
-        if (system == 0) {
-            target[0].GetComponent<PointMove>().isMove = true;
-            target[1].GetComponent<AudioSource>().Play();
-        }
-        //鍵を開ける
-        if (system == 1) {
-            //鍵を削除
-            Destroy(target[0]);
-            //ドアをあくようにする
-            target[1].GetComponent<Door>().enabled = true;
+        if (other.tag == "Player")
+        {
+            door.CloseDoor();
         }
     }
 }

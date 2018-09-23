@@ -42,7 +42,7 @@ public class RayHitObject : MonoBehaviour {
 			{
                 //ドア
                 DoorBase door = rayHitObject.GetComponent<DoorKnob>().Door();
-                if(door.IsOpenNow()) return;
+                if(door.IsLockDoor()) return;
 
                 rayHitObject.transform.Find("MousePlease").GetComponent<SpriteRenderer>().enabled = true;
 

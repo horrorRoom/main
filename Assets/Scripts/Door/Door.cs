@@ -1,5 +1,7 @@
 ﻿/*********************************************************/
-//ドアをひらくプログラム
+/// <summary>
+///ドアを開くプログラム
+/// </summary>
 /*********************************************************/
 using UnityEngine;
 using System.Collections;
@@ -17,8 +19,8 @@ public class Door : DoorBase
     private GameObject mExtrusion;
 
     //ドアを開ける音
-    [SerializeField]
     private AudioSource DoorSound;
+
     //閉まる音
     [SerializeField]
     private AudioClip cloose;
@@ -38,11 +40,12 @@ public class Door : DoorBase
     /*********************************************************/
     void Start()
     {
+        DoorSound = gameObject.GetComponent<AudioSource>();
+
         mPlayer = GameObject.FindGameObjectWithTag("Player").transform;
         mGoal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
 
         mAngle = 0.0f;
-        mIsOpen = false;
         mExtrusion = gameObject.transform.Find("Extrusion").gameObject;
         mExtrusion.SetActive(false);
     }
@@ -62,7 +65,6 @@ public class Door : DoorBase
             {
                 transform.RotateAround(mReferencePoint.position, new Vector3(0.0f, 1.0f, 0.0f), mSpeed * Time.deltaTime);
             }
-            else { isOpenNow = false; }
         }
         else
         {
@@ -72,12 +74,13 @@ public class Door : DoorBase
             {
                 transform.RotateAround(mReferencePoint.position, new Vector3(0.0f, 1.0f, 0.0f), -mSpeed * Time.deltaTime);
             }
-            else { isOpenNow = false; }
         }
     }
 
     /*********************************************************/
-    //ドアを開けた時のアクション
+    /// <summary>
+    /// ドアを開けた時のアクション
+    /// </summary>
     /*********************************************************/
     public override void Action()
     {
@@ -85,7 +88,7 @@ public class Door : DoorBase
         if (!gameObject.GetComponent<Door>().enabled) DoorSound.clip = lock_door;
         else DoorSound.clip = open_door;
 
-        isOpenNow = true;
+        mIsOpen = true;
 
         DoorSound.Play();
         if (mExtrusion != null) mExtrusion.SetActive(true);
@@ -108,7 +111,9 @@ public class Door : DoorBase
     }
 
     /*********************************************************/
-    //ループアクション
+    /// <summary>
+    /// ループアクション
+    /// </summary>
     /*********************************************************/
     void LoopAction()
     {
@@ -124,7 +129,9 @@ public class Door : DoorBase
     }
 
     /*********************************************************/
-    //ドアを閉じる
+    /// <summary>
+    /// ドアを閉じる
+    /// </summary>
     /*********************************************************/
     void DoorCloss()
     {

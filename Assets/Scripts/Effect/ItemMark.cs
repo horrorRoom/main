@@ -9,14 +9,23 @@ public class ItemMark : MonoBehaviour {
     [SerializeField]
     private bool isDoor=false;
 
+    //プレイヤー
+    private Transform player;
+
     float time=0;
 
-	// Use this for initialization
-	void Start () {
+    /*********************************************************/
+    // Use this for initialization
+    /*********************************************************/
+    void Start () {
         transform.position += new Vector3(0, 0.3f, 0);
+        //プレイヤー
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    /*********************************************************/
     // Update is called once per frame
+    /*********************************************************/
     void Update() {
         //表示数を管理する
         DrawController();
@@ -37,7 +46,9 @@ public class ItemMark : MonoBehaviour {
         //if (isDoor) UIPosition();
     }
 
+    /*********************************************************/
     //マークの位置
+    /*********************************************************/
     void UIPosition()
     {
         if(transform.eulerAngles.y >180) transform.position = transform.parent.transform.position + transform.parent.TransformDirection(Vector3.up) * 0.3f;
@@ -46,7 +57,9 @@ public class ItemMark : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, transform.parent.position.y + 0.3f, transform.position.z);
     }
 
+    /*********************************************************/
     //複数出された場合、１つしかでないようにする
+    /*********************************************************/
     void DrawController()
     {
         if (gameObject.GetComponent<SpriteRenderer>().enabled==false) return;
@@ -55,19 +68,19 @@ public class ItemMark : MonoBehaviour {
         if (ItemMark.Length < 2) return;
         int draw_num = 0;
         for (int i = 0; i < ItemMark.Length; i++) {
-            if (ItemMark[i].GetComponent<SpriteRenderer>().enabled){ draw_num++; }
+            if (ItemMark[i].GetComponent<SpriteRenderer>().enabled) draw_num++;
         }
 
         //表示している数が１つ以上だった場合
         if (draw_num > 1)
         {
             int number = 0;
-            float length = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, ItemMark[0].transform.position);
+            float length = Vector3.Distance(player.position, ItemMark[0].transform.position);
             for (int i = 1; i < ItemMark.Length; i++)
             {
-                if (length > Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, ItemMark[i].transform.position))
+                if (length > Vector3.Distance(player.position, ItemMark[i].transform.position))
                 {
-                    length = Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, ItemMark[i].transform.position);
+                    length = Vector3.Distance(player.position, ItemMark[i].transform.position);
                     number = i;
                 }
             }

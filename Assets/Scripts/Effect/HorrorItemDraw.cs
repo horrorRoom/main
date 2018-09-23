@@ -1,6 +1,6 @@
-﻿/**************************************/
+﻿/*********************************************************/
 //アイテムを確認するシステム
-/**************************************/
+/*********************************************************/
 using UnityEngine;
 using System.Collections;
 
@@ -19,12 +19,16 @@ public class HorrorItemDraw : MonoBehaviour {
     [SerializeField]
     private AudioSource sound;
 
-	// Use this for initialization
-	void Start () {
+    /*********************************************************/
+    // Use this for initialization
+    /*********************************************************/
+    void Start () {
 	
 	}
 
+    /*********************************************************/
     // Update is called once per frame
+    /*********************************************************/
     void Update() {
         //描画までの時間
         if (time > 0.0f) time -= 1.0f * Time.deltaTime;
@@ -44,7 +48,9 @@ public class HorrorItemDraw : MonoBehaviour {
         }
 	}
 
+    /*********************************************************/
     //実行Play
+    /*********************************************************/
     public void Play() {
         if (coolTime > 0 || isPlay || time > 0) return;
 
