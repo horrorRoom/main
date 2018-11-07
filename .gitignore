@@ -27,3 +27,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.ide-wal
+*.lock
+*.dtbcache
+*.ide-shm
+*.ide
