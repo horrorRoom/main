@@ -1,16 +1,26 @@
-﻿using System.Collections;
+﻿/***********************************************************/
+//ゲームのマネージャー
+/***********************************************************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private static GameManager singleInstance = new GameManager();
+
+    public static GameManager GetInstance()
+    {
+        return singleInstance;
+    }
+
+    /// <summary>
+    /// 演出中
+    /// </summary>
+    bool isPerformance=false;
+
+    /// <summary>
+    /// 演出中かどうか
+    /// </summary>
+    public bool IsPerformance { set { this.isPerformance =value; } get { return this.isPerformance; } }
 }
