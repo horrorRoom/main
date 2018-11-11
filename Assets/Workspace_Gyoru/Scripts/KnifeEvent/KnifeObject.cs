@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class KnifeObject : MonoBehaviour {
 	// Control Variable ==
+	[SerializeField] private KnifeEventScript _parentScript;
 	[SerializeField] private BoxCollider _coll;
 	// ==
 
@@ -67,9 +68,15 @@ public class KnifeObject : MonoBehaviour {
 		
 		// Play Sound
 	}
+
+	/// <summary> Knifeが壁に刺された時 </summary>
 	private void OnCollisionEnter(Collision collision)
 	{
+		// Stop Moving
 		_isTargetMoveOver = true;
 		_coll.enabled = false;
+
+		// Play Collision Sound
+		_parentScript.PlayKnifeCollisionSound();
 	}
 }

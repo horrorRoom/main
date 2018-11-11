@@ -8,8 +8,33 @@ using UnityEngine;
 ///  ・ メスが刺さるObjectのLayerを「KnifeEvent」に指定すること
 /// </summary>
 public class KnifeEventScript : MonoBehaviour {
-	[SerializeField] private KnifeObject[] _knifes;
-	[SerializeField] private Vector3 KnifeFloatingRot;
+	[SerializeField, Header("KnifeObject")]
+	private KnifeObject[] _knifes;
+	[SerializeField]
+	private Vector3 KnifeFloatingRot;
+
+	[SerializeField, Header("Sounds")]
+	private AudioSource _audioSource;
+	private bool _isCollisionSoundPlayed = false;
+
+	// Single Sound
+	[SerializeField]
+	private AudioClip[] _knifeCollisionSounds;
+
+	// [TEST] Multiple Sound
+	[SerializeField]
+	private AudioClip _multipleKnifeCollisionSound;
+	[SerializeField]
+	private bool _isMultipleKnifeCollisionSound = false;
+
+	/// <summary>
+	/// 一回のイベントで出すメスサウンド制限回数
+	/// (Volumeを調整)
+	/// </summary>
+	[SerializeField]
+	private int _maxKnifeCollisionSoundCount = 3;
+	private int _nowKnifeCollisionSoundCount = 0;
+
 	private Vector3 KnifeMoveDirection;
 
 	private bool _isKnifeEventStarted = false;
@@ -33,9 +58,24 @@ public class KnifeEventScript : MonoBehaviour {
 			StartCoroutine(KnifeEvent());
 	}
 
+	public void PlayKnifeCollisionSound()
+	{
+		if (!_isCollisionSoundPlayed && _isMultipleKnifeCollisionSound && _multipleKnifeCollisionSound != null)
+			_audioSource.PlayOneShot(_multipleKnifeCollisionSound);
+		else if (!_isMultipleKnifeCollisionSound && _nowKnifeCollisionSoundCount < _maxKnifeCollisionSoundCount && _knifeCollisionSounds != null)
+		{
+			++_nowKnifeCollisionSoundCount;
+			_audioSource.PlayOneShot(_knifeCollisionSounds[UnityEngine.Random.Range(0, _knifeCollisionSounds.Length)]);
+		}
+			
+		_isCollisionSoundPlayed = true;
+	}
+
 	private IEnumerator KnifeEvent()
 	{
 		_isKnifeEventStarted = true;
+		_isCollisionSoundPlayed = false;
+		_nowKnifeCollisionSoundCount = 0;
 
 		for (int i = 0; i < _knifes.Length; ++i)
 		{
