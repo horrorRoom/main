@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177195164719520}
   - component: {fileID: 114302747110480832}
+  - component: {fileID: 82521883158700316}
   m_Layer: 0
   m_Name: KnifeEventObjects
   m_TagString: Untagged
@@ -1759,6 +1760,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3831594, y: 0.3663481, z: 8.4}
   m_Center: {x: 2.3818169, y: -0.18317404, z: -5.4}
+--- !u!82 &82521883158700316
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275981035609676}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!108 &108361476735350088
 Light:
   m_ObjectHideFlags: 1
@@ -1844,6 +1940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65870601210234038}
 --- !u!114 &114123855834497178
 MonoBehaviour:
@@ -1856,6 +1953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65053509028831100}
 --- !u!114 &114146534585038710
 MonoBehaviour:
@@ -1868,6 +1966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65451684818045220}
 --- !u!114 &114157634287794980
 MonoBehaviour:
@@ -1880,6 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65313286893672270}
 --- !u!114 &114302747110480832
 MonoBehaviour:
@@ -1908,6 +2008,15 @@ MonoBehaviour:
   - {fileID: 114944924778060946}
   - {fileID: 114350361637498154}
   KnifeFloatingRot: {x: 0, y: -90, z: 0}
+  _audioSource: {fileID: 82521883158700316}
+  _knifeCollisionSounds:
+  - {fileID: 8300000, guid: 3bcb48d507205ce4b99f9b83be5e1c11, type: 3}
+  - {fileID: 8300000, guid: 8509b9917a121d840a84ef8115ae4573, type: 3}
+  - {fileID: 8300000, guid: 2c67bde7429e0244a9b4c797e05bbb69, type: 3}
+  _multipleKnifeCollisionSound: {fileID: 8300000, guid: a72d3379f4102f142a91aa835eb0bc24,
+    type: 3}
+  _isMultipleKnifeCollisionSound: 0
+  _maxKnifeCollisionSoundCount: 3
 --- !u!114 &114302787075815072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1919,6 +2028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65391920529881246}
 --- !u!114 &114320917616449728
 MonoBehaviour:
@@ -1931,6 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65522237550359612}
 --- !u!114 &114332543994311282
 MonoBehaviour:
@@ -1943,6 +2054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65445023308986112}
 --- !u!114 &114350361637498154
 MonoBehaviour:
@@ -1955,6 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65649054058152240}
 --- !u!114 &114422994277903904
 MonoBehaviour:
@@ -1967,6 +2080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65164452860582808}
 --- !u!114 &114455375160789050
 MonoBehaviour:
@@ -1979,6 +2093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65685018919402160}
 --- !u!114 &114581010603259920
 MonoBehaviour:
@@ -1991,6 +2106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65831284871210410}
 --- !u!114 &114637756559915552
 MonoBehaviour:
@@ -2003,6 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65387835516017690}
 --- !u!114 &114918673121063074
 MonoBehaviour:
@@ -2015,6 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65313012314585096}
 --- !u!114 &114943629802226352
 MonoBehaviour:
@@ -2038,4 +2156,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a3def711540b0952da2452aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentScript: {fileID: 114302747110480832}
   _coll: {fileID: 65099432226358370}
