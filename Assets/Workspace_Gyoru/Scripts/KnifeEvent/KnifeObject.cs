@@ -19,9 +19,9 @@ public class KnifeObject : MonoBehaviour {
 	private Vector3 _targetPos = Vector3.zero;
 	private float _targetMoveSpeed = 0.0f;
 
-	// ナイフの浮くイベントは終了したか？
+	/// <summary> メスが空を飛ぶイベントは終了したか？ </summary>
 	private bool _isFloatingMoveOver = false;
-	// ナイフのターゲットイベントは終了したか？
+	/// <summary>  メスがターゲットに向かって飛ぶイベントは終了したか？ </summary>
 	private bool _isTargetMoveOver = false;
 	public bool IsFloatingMoveOver { get { return _isFloatingMoveOver; } }
 	public bool IsTargetMoveOver { get { return _isTargetMoveOver; } }
@@ -48,6 +48,16 @@ public class KnifeObject : MonoBehaviour {
 		_isFloatingMoveOver = true;
 	}
 
+	/// <summary> Knifeが壁に刺された時のイベント </summary>
+	public void EndTargetMoveEvent()
+	{
+		_isTargetMoveOver = true;
+		_coll.enabled = false;
+
+		// Play Collision Sound
+		_parentScript.KnifeCollisionEvent();
+	}
+
 	private IEnumerator KnifeEventStart()
 	{
 		// Start Floating
@@ -65,18 +75,5 @@ public class KnifeObject : MonoBehaviour {
 			transform.position += _targetMoveDirection * _targetMoveSpeed * Time.deltaTime;
 			yield return null;
 		}
-		
-		// Play Sound
-	}
-
-	/// <summary> Knifeが壁に刺された時 </summary>
-	private void OnCollisionEnter(Collision collision)
-	{
-		// Stop Moving
-		_isTargetMoveOver = true;
-		_coll.enabled = false;
-
-		// Play Collision Sound
-		_parentScript.PlayKnifeCollisionSound();
 	}
 }

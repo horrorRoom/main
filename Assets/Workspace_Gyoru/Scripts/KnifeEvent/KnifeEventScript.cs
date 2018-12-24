@@ -1,65 +1,70 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// ■ Knife Event Script
-///  ・ メスが飛ぶ方向を指定すること
-///  ・ メスが刺さるObjectのLayerを「KnifeEvent」に指定すること
+///  ・ メスが壁に刺さるようにする場合、壁のオブジェクトのLayerを「KnifeEvent」に指定すること
 /// </summary>
 public class KnifeEventScript : MonoBehaviour {
-	[SerializeField, Header("KnifeObject")]
+
+	[SerializeField, Header("Target")]
+	private Transform _targetTransform;
+	private Vector3 _targetPosition = Vector3.zero;
+
+	[SerializeField, Header("KnifeObjects")]
 	private KnifeObject[] _knifes;
-	[SerializeField]
-	private Vector3 KnifeFloatingRot;
+	private Vector3 _knifeFloatingRot;
+	private Vector3 _knifeMoveDirection;
+	private int _completedKnifeEventCount = 0;
+
+	[SerializeField] private Vector3 _knifeFloatingRandomRangeMin;
+	[SerializeField] private Vector3 _knifeFloatingRandomRangeMax;
+	[SerializeField] private float _knifeFloatingTime;
+	[SerializeField] private float _knifeTargetMoveSpeed;
 
 	[SerializeField, Header("Sounds")]
 	private AudioSource _audioSource;
-	private bool _isCollisionSoundPlayed = false;
+
+	// [TEST] Multiple Sound
+	[SerializeField]
+	private bool _isMultipleKnifeCollisionSound = false;
+	[SerializeField]
+	private AudioClip _multipleKnifeCollisionSound;
 
 	// Single Sound
 	[SerializeField]
 	private AudioClip[] _knifeCollisionSounds;
 
-	// [TEST] Multiple Sound
-	[SerializeField]
-	private AudioClip _multipleKnifeCollisionSound;
-	[SerializeField]
-	private bool _isMultipleKnifeCollisionSound = false;
-
 	/// <summary>
 	/// 一回のイベントで出すメスサウンド制限回数
-	/// (Volumeを調整)
+	/// _isMultipleKnifeCollisionSoundがfalseの場合のみ使用
+	/// (Volumeを調整のため)
 	/// </summary>
 	[SerializeField]
 	private int _maxKnifeCollisionSoundCount = 3;
 	private int _nowKnifeCollisionSoundCount = 0;
 
-	private Vector3 KnifeMoveDirection;
-
 	private bool _isKnifeEventStarted = false;
+	private bool _isCollisionSoundPlayed = false;
 
-	private void Start()
-	{
-		// [TODO] 方向を変更可能にすること
-		KnifeMoveDirection = transform.right;
-	}
+	// Event Callback
+	private UnityAction _eventCompleteCallback = null;
 
-	// DEBUG
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.K))
-			KnifeEventStart();
-	}
-
-	public void KnifeEventStart()
+	public void KnifeEventStart(UnityAction completeCallback = null)
 	{
 		if (!_isKnifeEventStarted)
+		{
+			_eventCompleteCallback = completeCallback;
 			StartCoroutine(KnifeEvent());
+		}
 	}
 
-	public void PlayKnifeCollisionSound()
+	public void KnifeCollisionEvent()
 	{
+		++_completedKnifeEventCount;
+
+		// Play Sound
 		if (!_isCollisionSoundPlayed && _isMultipleKnifeCollisionSound && _multipleKnifeCollisionSound != null)
 			_audioSource.PlayOneShot(_multipleKnifeCollisionSound);
 		else if (!_isMultipleKnifeCollisionSound && _nowKnifeCollisionSoundCount < _maxKnifeCollisionSoundCount && _knifeCollisionSounds != null)
@@ -73,35 +78,54 @@ public class KnifeEventScript : MonoBehaviour {
 
 	private IEnumerator KnifeEvent()
 	{
+		// Set Value
 		_isKnifeEventStarted = true;
 		_isCollisionSoundPlayed = false;
 		_nowKnifeCollisionSoundCount = 0;
+		_completedKnifeEventCount = 0;
+		_targetPosition = _targetTransform.position;
 
+		Vector3 floatingPos = Vector3.zero;
+		Vector3 knifePositionForCalcDir = new Vector3(_knifes[0].transform.position.x, 
+			_targetPosition.y, _knifes[0].transform.position.z);
+
+		// Set Rotation
+		var dir = (_targetPosition - knifePositionForCalcDir).normalized;
+		_knifeFloatingRot = Quaternion.LookRotation(dir, Vector3.up).eulerAngles;
+		_knifeFloatingRot.z = 0.0f;
+
+		// Start Knife Event
 		for (int i = 0; i < _knifes.Length; ++i)
 		{
-			_knifes[i].KnifeStart(GetKnifeFloatingPosition(
-				_knifes[i].transform.localPosition),
-				KnifeFloatingRot,
-				KnifeMoveDirection,
-				2.0f,
-				8.0f);
-
+			floatingPos = GetKnifeFloatingPosition(_knifes[i].transform.localPosition);
+			_knifes[i].KnifeStart(floatingPos, _knifeFloatingRot, dir, 2.0f, 8.0f);
 			yield return new WaitForSeconds(UnityEngine.Random.Range(0.05f, 0.15f));
 		}
 
-		// Wait last object floating event
+		// Wait last object complete floating event (メスが空を飛ぶまで待機)
 		yield return new WaitForSeconds(2.25f);
 
+		// メスをターゲットに向けて発射
 		for (int i = 0; i < _knifes.Length; ++i)
 			_knifes[i].EndKnifeFloatingEvent();
+
+		// Wait Knife Event Complete
+		while (_completedKnifeEventCount == _knifes.Length)
+			yield return null;
+
+		// End Knife Event
+		// [TODO] Knife 位置・状態をリセット
+		// _isKnifeEventStarted = false;
+		if (_eventCompleteCallback != null)
+			_eventCompleteCallback.Invoke();
 	}
 
 	private Vector3 GetKnifeFloatingPosition(Vector3 pos)
 	{
 		Vector3 result = new Vector3(
-			pos.x,
-			UnityEngine.Random.Range(pos.y + 0.5f, pos.x + 2.0f),
-			UnityEngine.Random.Range(pos.z - 0.3f, pos.z + 0.3f));
+			pos.x * UnityEngine.Random.Range(1.5f, 4.0f),
+			UnityEngine.Random.Range(pos.y + 0.1f, pos.y + 1.5f),
+			pos.z);
 
 		return result;
 	}
