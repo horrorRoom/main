@@ -26,6 +26,7 @@ TagManager:
   - MouseSensitivity
   - SwitchRoomColl
   - HelpManager
+  - WayPoint
   layers:
   - Default
   - TransparentFX
