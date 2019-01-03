@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour {
     /*==外部設定変数==*/
     [SerializeField]
-    private string nextSceneName;
+    private StageController stageController;
     [SerializeField]
     private float waitTime = 1.0f;//ゴールしてからフェードするまでの待機時間（秒）
 
@@ -81,7 +81,7 @@ public class Goal : MonoBehaviour {
         if (!isGoal) return;
 
         //フェードアウトが完了したら次のシーンへ
-        if (!fade.GetComponent<Fade>().isEnd && isFade) Application.LoadLevel(nextSceneName);
+        if (!fade.GetComponent<Fade>().isEnd && isFade) SceneManager.LoadScene(stageController.NextSceneName());
 
          //数秒たったらフェードアウトさせる
          time += Time.deltaTime;

@@ -184,3 +184,13 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9ee77206cb3545545bbc9d703068c4dd, type: 3}
   - name: searchBGM
     audioClip: {fileID: 8300000, guid: 78ea595fa104af248b1841b06131bf6e, type: 3}
+  - name: slideOepnDoor
+    audioClip: {fileID: 8300000, guid: 9ee77206cb3545545bbc9d703068c4dd, type: 3}
+  - name: slideCloseDoor
+    audioClip: {fileID: 8300000, guid: 506304c9b9ac1e6469dc166f0986f59a, type: 3}
+  - name: slideLockDoor
+    audioClip: {fileID: 8300000, guid: d95285ef83ad1864c9614da35d4f6db5, type: 3}
+  - name: putCloseDoor
+    audioClip: {fileID: 8300000, guid: 506304c9b9ac1e6469dc166f0986f59a, type: 3}
+  - name: putLockDoor
+    audioClip: {fileID: 8300000, guid: d95285ef83ad1864c9614da35d4f6db5, type: 3}

@@ -11,16 +11,6 @@ public class SideDoor : DoorBase
     [SerializeField]
     Transform mDoor;
 
-    //ドアを開ける音
-    [SerializeField]
-    private AudioSource DoorSound;
-    //鍵がかかってる音
-    [SerializeField]
-    private AudioClip lock_door;
-    //ドアが開く音
-    [SerializeField]
-    private AudioClip open_door;
-
     //オートの処理があった場合
     [SerializeField]
     private DoorAutoClause doorAutoClause;
@@ -68,11 +58,12 @@ public class SideDoor : DoorBase
     public override void Action()
     {
         //SE
-        if (!this.gameObject.GetComponent<SideDoor>().enabled) DoorSound.clip = lock_door;
-        else DoorSound.clip = open_door;
+        if (!this.gameObject.GetComponent<SideDoor>().enabled)
+        {
+            SoundManager.GetInstance().SEPlay("slideLockDoor");
+        }
+        else SoundManager.GetInstance().SEPlay("slideOpenDoor");
 
-
-        DoorSound.Play();
         //ゴール演出
         if (isGoalDoor)
         {

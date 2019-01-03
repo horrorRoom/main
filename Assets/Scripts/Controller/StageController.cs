@@ -28,4 +28,16 @@ public class StageController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    /// <summary>
+    /// 次のシーン名
+    /// </summary>
+    /// <returns></returns>
+    public string SceneName() { return sceneName; }
+
+    /// <summary>
+    /// 次のシーン名
+    /// </summary>
+    /// <returns></returns>
+    public string NextSceneName() { return nextSceneName; }
 }

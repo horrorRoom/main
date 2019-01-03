@@ -10757,6 +10757,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1073146693}
     m_Modifications:
+    - target: {fileID: 114729000149481480, guid: a108a8ebf3d8c7d4586276b44d3e2581,
+        type: 2}
+      propertyPath: helpManager.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4277271206448982, guid: a108a8ebf3d8c7d4586276b44d3e2581, type: 2}
       propertyPath: m_LocalPosition.x
       value: -39.75
@@ -10818,6 +10823,26 @@ Prefab:
       propertyPath: m_Name
       value: GoalRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 114729000149481480, guid: a108a8ebf3d8c7d4586276b44d3e2581,
+        type: 2}
+      propertyPath: helpManager.Array.data[0]
+      value: 
+      objectReference: {fileID: 1438248731}
+    - target: {fileID: 114729000149481480, guid: a108a8ebf3d8c7d4586276b44d3e2581,
+        type: 2}
+      propertyPath: helpManager.Array.data[1]
+      value: 
+      objectReference: {fileID: 1393599629}
+    - target: {fileID: 114729000149481480, guid: a108a8ebf3d8c7d4586276b44d3e2581,
+        type: 2}
+      propertyPath: helpManager.Array.data[2]
+      value: 
+      objectReference: {fileID: 369170588}
+    - target: {fileID: 114729000149481480, guid: a108a8ebf3d8c7d4586276b44d3e2581,
+        type: 2}
+      propertyPath: helpManager.Array.data[3]
+      value: 
+      objectReference: {fileID: 673826757}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a108a8ebf3d8c7d4586276b44d3e2581, type: 2}
   m_IsPrefabAsset: 0
