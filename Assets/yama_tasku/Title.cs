@@ -1,38 +1,63 @@
-﻿using UnityEngine;
+﻿/***********************************************************/
+//タイトルシーン
+/***********************************************************/
+using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour {
-	public float rotateDuration; 												//回転にかかる時間
-	public float moveDuration;													//移動にかかる時間
-	public int RotateCount = 0;
-
-	[SerializeField] private GameObject[] StartMovePoint = new GameObject[4];	//スタート地点での移動先GameObject配列
-	[SerializeField] private GameObject[] StartDoorList = new GameObject[3];	//スタート地点のドアGameObject配列
-
-	[SerializeField] private GameObject[] LevelMovePoint= new GameObject[3];	//レベル選択地点での移動先GameObject配列
-	[SerializeField] private GameObject[] LevelDoorList = new GameObject[2];	//スタート地点のドアGameObject配列
+    /// <summary>
+    /// スタート地点での移動先GameObject配列
+    /// </summary>
+	[SerializeField] private GameObject[] StartMovePoint = new GameObject[4];
+    /// <summary>
+    /// スタート地点のドアGameObject配列
+    /// </summary>
+	[SerializeField] private GameObject[] StartDoorList = new GameObject[3];
+    /// <summary>
+    /// レベル選択地点での移動先GameObject配列
+    /// </summary>
+	[SerializeField] private GameObject[] LevelMovePoint= new GameObject[3];
+    /// <summary>
+    /// スタート地点のドアGameObject配列
+    /// </summary>
+	[SerializeField] private GameObject[] LevelDoorList = new GameObject[2];
 
 	public bool moveFlag = false;
 	[SerializeField] private bool levelSelect = false;
-	private GameObject fade;
-	private int stageNum;
+    [SerializeField] private Fade fade;
 
-	void Start () {
+    //回転にかかる時間
+    public float rotateDuration = 1.0f;
+    //移動にかかる時間
+    public float moveDuration = 1.0f;
+    public int RotateCount = 0;
+
+    /// <summary>
+    /// 初期化
+    /// </summary>
+    void Start () {
+        SoundManager.GetInstance().BGMPlay("kagome", SoundManager.SoundPlayerMode.LOOP);
 		PlayerPrefs.SetInt ("Count", 0);
-		fade = GameObject.FindGameObjectWithTag("Fade");
 	}
 
+    /// <summary>
+    /// 更新
+    /// </summary>
 	void Update () {
-		if (fade.GetComponent<Fade> ().isStart != true) {
-			if (LeanTween.isTweening (this.gameObject) != true) {
+		if (!fade.isStart) {
+			if (!LeanTween.isTweening (this.gameObject)) {
 				TitleInput ();
 
-				if (levelSelect == false) StartTitleMove ();
-				else if (levelSelect == true) LevelSelectMove ();
+				if (!levelSelect) StartTitleMove ();
+				else if (levelSelect) LevelSelectMove ();
 			}
 		}
 	}
 
+    /// <summary>
+    /// タイトルの初期化
+    /// </summary>
 	void TitleInput(){
 		//if(LeanTween.isTweening(this.gameObject)!=true){
 		if (moveFlag != true) {
@@ -54,52 +79,51 @@ public class Title : MonoBehaviour {
 
 			if (levelSelect == true && RotateCount == 3) return;
             if (RotateCount == 1) return;
-			if (Input.GetKeyDown (KeyCode.Space)) {
-                moveFlag = true;
-			}
+			if (Input.GetKeyDown (KeyCode.Space)) moveFlag = true;
 		//}
 	}
 
-	//スタート地点での操作
-	void StartTitleMove(){
-		if (moveFlag == true) {
+    /// <summary>
+    /// スタート地点での操作
+    /// </summary>
+    void StartTitleMove(){
+		if (moveFlag) {
 			if (RotateCount == 0) {
 				TitleMove(0, StartMovePoint, false);
 				levelSelect = true;
 			}
-			else if(RotateCount != 0) {
-				STitleMoveCheck();
-			}
+			else if(RotateCount != 0)　STitleMoveCheck();
 		}
 	}
 
-	//ドアがあるときのMove判定
-	void STitleMoveCheck(){
+    /// <summary>
+    /// ドアがあるときのMove判定
+    /// </summary>
+    void STitleMoveCheck(){
         if (StartDoorList[RotateCount - 1]==null) return;
         
 		if (StartDoorList [RotateCount-1].GetComponent<OpenDoor> ().isOpen == true && moveFlag==true) {
 			TitleMove(0, StartMovePoint, true);
 
-			fade.GetComponent<Fade>().isEnd = true;
+			fade.isEnd = true;
 
 			//fadeし終えたらセーブしていたステージに移動する
-			if(fade.GetComponent<Fade>().fadeAlpha >= 1.0f){
-				if (RotateCount == 2){
-					Application.Quit ();
-				}
-				else if (RotateCount == 3) {
-					Application.LoadLevel ("Option");
-				}
-				else if (RotateCount == 1) {
-					stageNum = PlayerPrefs.GetInt("SceneNum", 1);
-					Application.LoadLevel("Stage" + stageNum);
-				} 
+			if(fade.fadeAlpha >= 1.0f){
+				if (RotateCount == 2) Application.Quit();
+                else if (RotateCount == 3) SceneManager.LoadScene("Option");
+                else if (RotateCount == 1) {
+					int stageNum = PlayerPrefs.GetInt("SceneNum", 1);
+                    SceneManager.LoadScene("Stage" + stageNum);
+                } 
 			}
 		}
 	}
 
+    /// <summary>
+    /// レベル選択
+    /// </summary>
 	void LevelSelectMove(){
-		if (moveFlag == true) {
+		if (moveFlag) {
 			if (RotateCount == 2) {
 				TitleMove (0, LevelMovePoint, false);
 				levelSelect = false;
@@ -109,37 +133,40 @@ public class Title : MonoBehaviour {
 		}
 	}
 
+    /// <summary>
+    /// そのままレベルのステージに行く
+    /// </summary>
 	void LTitleMoveCheck(){
-		if (LevelDoorList [RotateCount].GetComponent<OpenDoor> ().isOpen == true && moveFlag==true) {
-			TitleMove(0, LevelMovePoint, true);
+		if (LevelDoorList [RotateCount].GetComponent<OpenDoor> ().isOpen && moveFlag) {
+            SoundManager.GetInstance().SEPlay("putOpenDoor");
+            TitleMove(0, LevelMovePoint, true);
 
 
-			fade.GetComponent<Fade>().isEnd = true;
+			fade.isEnd = true;
 
 			//fadeし終えたらセーブしていたステージに移動する
-			if(fade.GetComponent<Fade>().fadeAlpha >= 1.0f){
-				if (RotateCount == 0){
-					Application.LoadLevel ("Stage1");
-				}
-				else if (RotateCount == 1) {
-					Application.LoadLevel ("Stage1");
-				}
+			if(fade.fadeAlpha >= 1.0f){
+				if (RotateCount == 0) SceneManager.LoadScene("Stage1");
+				else if (RotateCount == 1) SceneManager.LoadScene("Stage1");
 			}
 		}
 	}
 
-
-	//回転操作
-	//delay：回転に入るまでのラグタイム
-	void TitleRotate(float delay){
+    /// <summary>
+    /// 回転操作
+    /// </summary>
+    /// <param name="delay">回転に入るまでのラグタイム</param>
+    void TitleRotate(float delay){
 		LeanTween.rotateY(this.gameObject, 90.0f*RotateCount, rotateDuration).setDelay(delay);
 	}
 
-	//移動操作
-	//delay：移動に入るまでのラグタイム
-	//obj：移動目標のGameObject配列
-	//num：配列番号
-	void TitleMove(float delay, GameObject[] obj, bool flag){
+    /// <summary>
+    /// 移動操作
+    /// </summary>
+    /// <param name="delay">移動に入るまでのラグタイム</param>
+    /// <param name="obj">移動目標のGameObject配列</param>
+    /// <param name="flag">配列番号</param>
+    void TitleMove(float delay, GameObject[] obj, bool flag){
 		LeanTween.moveLocal(this.gameObject, obj[RotateCount].transform.position, moveDuration).setDelay(delay);
 		moveFlag = flag;
 	}

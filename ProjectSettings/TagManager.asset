@@ -26,6 +26,7 @@ TagManager:
   - MouseSensitivity
   - SwitchRoomColl
   - HelpManager
+  - SoundManager
   layers:
   - Default
   - TransparentFX

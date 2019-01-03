@@ -9,10 +9,7 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager singleInstance = new GameManager();
 
-    public static GameManager GetInstance()
-    {
-        return singleInstance;
-    }
+    public static GameManager GetInstance(){ return singleInstance; }
 
     /// <summary>
     /// 演出中

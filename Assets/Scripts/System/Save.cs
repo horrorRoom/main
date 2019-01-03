@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿/***********************************************************/
+//ステージの情報を保存(リザルトや次のステージに持っていく
+/***********************************************************/
+using UnityEngine;
 using System.Collections;
 
 public class Save : MonoBehaviour {
+    [SerializeField]
+    //ステージの管理
+    private StageController stageController;
 
-    public string sceneName;
+    private string sceneName;
 
     void Start()
     {   
@@ -18,4 +24,16 @@ public class Save : MonoBehaviour {
 	void Update () {
         DontDestroyOnLoad(gameObject);
 	}
+
+    /// <summary>
+    /// 現在のいたステージ名
+    /// </summary>
+    /// <returns></returns>
+    public string GetSceneName() { return sceneName; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="name"></param>
+    public void SetSceneName(string name) { sceneName = name; }
 }
