@@ -8,13 +8,11 @@ public class LogoSelect : MonoBehaviour {
     public GameObject Select;
 
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Start () {}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Select.GetComponent<ResultSelect>().number == number)
+        if (Select.GetComponent<ResultSelect>().GetSelectNumber() == number)
         {
             this.GetComponent<SpriteRenderer>().color = new Color(1.0f,1.0f,1.0f,1.0f);
         }
