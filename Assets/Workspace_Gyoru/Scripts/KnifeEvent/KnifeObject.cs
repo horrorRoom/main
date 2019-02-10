@@ -18,6 +18,7 @@ public class KnifeObject : MonoBehaviour {
 	private Vector3 _targetMoveDirection = Vector3.zero;
 	private Vector3 _targetPos = Vector3.zero;
 	private float _targetMoveSpeed = 0.0f;
+	private float _targetMoveSpeedOriginal = 0.0f;
 
 	/// <summary> メスが空を飛ぶイベントは終了したか？ </summary>
 	private bool _isFloatingMoveOver = false;
@@ -35,6 +36,7 @@ public class KnifeObject : MonoBehaviour {
 		_floatingTime = floatingTime;
 		_targetMoveDirection = targetMoveDirection;
 		_targetMoveSpeed = targetMoveSpeed;
+		_targetMoveSpeedOriginal = targetMoveSpeed;
 
 		_isFloatingMoveOver = false;
 		_isTargetMoveOver = false;
@@ -56,6 +58,11 @@ public class KnifeObject : MonoBehaviour {
 
 		// Play Collision Sound
 		_parentScript.KnifeCollisionEvent();
+	}
+
+	public void SetKnifeMoveSpeedByPercent(float speedPercent)
+	{
+		_targetMoveSpeed = _targetMoveSpeedOriginal * speedPercent;
 	}
 
 	private IEnumerator KnifeEventStart()

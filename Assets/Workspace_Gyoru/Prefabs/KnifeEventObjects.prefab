@@ -763,8 +763,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1447656661836304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 4.803}
-  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_LocalPosition: {x: 0, y: -0.25, z: 5.12}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 4177195164719520}
   m_RootOrder: 1
@@ -842,7 +842,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753852363453904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.49, z: 5.559}
+  m_LocalPosition: {x: 0, y: 1.49, z: 5.558}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4177195164719520}
@@ -2665,7 +2665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8279d2b330930704ea722ba1e922989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetTransform: {fileID: 0}
+  _slowMotionSE: {fileID: 8300000, guid: 961a6d71b88afd346b2f03363d1ba75f, type: 3}
+  _slowMotionDistance: 2
   _knifes:
   - {fileID: 114939684953646650}
   - {fileID: 114091684348557128}
@@ -2682,10 +2683,9 @@ MonoBehaviour:
   - {fileID: 114360750435120392}
   - {fileID: 114654332300406230}
   - {fileID: 114159761835735714}
-  _knifeFloatingRandomRangeMin: {x: 0, y: 0, z: 0}
-  _knifeFloatingRandomRangeMax: {x: 0, y: 0, z: 0}
-  _knifeFloatingTime: 0
-  _knifeTargetMoveSpeed: 0
+  _knifeFloatingPosition: {x: 0, y: 1.5, z: 0}
+  _knifeFloatingTime: 2
+  _knifeTargetMoveSpeed: 8
   _audioSource: {fileID: 82521883158700316}
   _isMultipleKnifeCollisionSound: 0
   _multipleKnifeCollisionSound: {fileID: 8300000, guid: a72d3379f4102f142a91aa835eb0bc24,

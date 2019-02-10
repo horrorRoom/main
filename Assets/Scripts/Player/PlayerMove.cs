@@ -50,6 +50,12 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     GameObject[] RatateObject;
 
+    /* ==[ギョル追記開始]== */
+    // メスイベント時にプレイヤの移動を止めるために作成
+    /// <summary> 現在プレイヤが移動可能状態なのか？ </summary>
+    public bool IsMovable;
+    /* ==[ギョル追記終了]== */
+
     /*==================*/
     /* 生成前前初期化   */
     /*==================*/
@@ -69,6 +75,10 @@ public class PlayerMove : MonoBehaviour
         fade = GameObject.FindGameObjectWithTag("Fade");
 
         gameObject.GetComponent<MouseLook>().enabled = false;
+
+        // [ギョル追記開始] ======
+        IsMovable = true;
+        // [ギョル追記終了] ======
     }
 
     /*==================*/
@@ -95,7 +105,15 @@ public class PlayerMove : MonoBehaviour
 
         MoveAxisControl();
         //JumpControl();
-        Move();
+
+        // [ギョル追記開始] ======
+        if(IsMovable)
+        {
+            Move();
+        }
+        // [既存のコード]
+        // Move();
+        // [ギョル追記終了] ======
     }
 
     /*================================*/
