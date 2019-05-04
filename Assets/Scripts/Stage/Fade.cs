@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// フェード
+/// </summary>
 public class Fade : MonoBehaviour {
 
-    public bool isStart=false;
-    public bool isEnd = false;
-
+    [SerializeField]
+    private bool isStart=false;
+    [SerializeField]
+    private bool isEnd = false;
+    [SerializeField]
     /// <summary>フェード中の透明度</summary>
-    public float fadeAlpha = 1.0f;
+    private float fadeAlpha = 1.0f;
+    [SerializeField]
+    private Image image;
 
     private float time=0.0f;
 
@@ -42,7 +50,28 @@ public class Fade : MonoBehaviour {
             }
         }
 
-        GetComponent<GUITexture>().color = new Color(1.0f, 1.0f, 1.0f, fadeAlpha);
-		GetComponent<GUITexture>().pixelInset =new Rect(-(Screen.width /2),-(Screen.height /2),Screen.width /2,Screen.height /2);
+        image.color = new Color(image.color.r, image.color.b, image.color.g, fadeAlpha);
 	}
+
+    /// <summary>
+    /// フェードイン中か返す
+    /// </summary>
+    /// <returns></returns>
+    public bool IsStart() { return isStart; }
+
+    /// <summary>
+    /// フェードアウト中か返す
+    /// </summary>
+    /// <returns></returns>
+    public bool IsEnd() { return isEnd; }
+
+    /// <summary>
+    /// フェードイン
+    /// </summary>
+    public void FadeIn() { isStart=true; }
+
+    /// <summary>
+    /// フェードアウト
+    /// </summary>
+    public void FadeOut() { isEnd = true; }
 }

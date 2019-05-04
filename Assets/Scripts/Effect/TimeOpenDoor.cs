@@ -31,7 +31,7 @@ public class TimeOpenDoor : MonoBehaviour {
     void Update()
     {
         //フェードアウトが完了していなかったら何もしない
-        if (mFade.isStart) return;
+        if (mFade.IsStart()) return;
 
         if (mReloadTime > 0.0f)  mReloadTime -= 1.0f * Time.deltaTime;
 

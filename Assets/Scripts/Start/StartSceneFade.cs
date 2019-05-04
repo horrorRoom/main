@@ -16,7 +16,7 @@ public class StartSceneFade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Fade.GetComponent<Fade>().isStart) return;
+        /*if (Fade.GetComponent<Fade>().isStart) return;
 
         if (isFade && !Fade.GetComponent<Fade>().isEnd)
         {
@@ -29,6 +29,6 @@ public class StartSceneFade : MonoBehaviour {
         {
             isFade = true;
             Fade.GetComponent<Fade>().isEnd = true; ;
-        }
+        }*/
 	}
 }

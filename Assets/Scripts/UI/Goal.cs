@@ -81,13 +81,13 @@ public class Goal : MonoBehaviour {
         if (!isGoal) return;
 
         //フェードアウトが完了したら次のシーンへ
-        if (!fade.GetComponent<Fade>().isEnd && isFade) SceneManager.LoadScene(stageController.NextSceneName());
+        if (!fade.GetComponent<Fade>().IsEnd() && isFade) SceneManager.LoadScene(stageController.NextSceneName());
 
          //数秒たったらフェードアウトさせる
          time += Time.deltaTime;
         if (time >= waitTime && !isFade)
         {
-            fade.GetComponent<Fade>().isEnd = true;
+            fade.GetComponent<Fade>().FadeOut();
             isFade = true;
         }
         

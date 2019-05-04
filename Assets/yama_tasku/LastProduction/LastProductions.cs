@@ -124,10 +124,10 @@ public class LastProductions : MonoBehaviour {
 		if (player == null)	return;
 		if (mainTimer > finishLimitTime) {
 			player.GetComponent<PlayerMove> ().SetMoveSpeed(0, 0);
-			fade.GetComponent<Fade>().isEnd = true;
+			fade.GetComponent<Fade>().FadeOut();
 
 			//fadeし終えたらセーブしていたステージに移動する
-			if(fade.GetComponent<Fade>().fadeAlpha >= 1.0f){
+			if(!fade.GetComponent<Fade>().IsEnd()){
                 ToGameOver.Apply(player.transform);	
 			}
 		}
@@ -229,10 +229,10 @@ public class LastProductions : MonoBehaviour {
 
 		yield return new WaitForSeconds (1);
 		//フェードする
-		fade.GetComponent<Fade>().isEnd = true;
+		fade.GetComponent<Fade>().FadeOut();
 
 		//fadeし終えたらセーブしていたステージに移動する
-		if(fade.GetComponent<Fade>().fadeAlpha >= 1.0f){
+		if(!fade.GetComponent<Fade>().IsEnd()){
 			result = PlayerPrefs.GetInt ("Count");
 			if (result >= 10) {
 				Debug.Log ("Happy");

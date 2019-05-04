@@ -88,7 +88,7 @@ public class OptionScene : MonoBehaviour
 
     void Update()
     {
-        if (fade.isStart) return;
+        if (fade.IsStart()) return;
 
         ChangeLookControl();
         if (m_LookIndex == 0 && !m_IsChangeLook)

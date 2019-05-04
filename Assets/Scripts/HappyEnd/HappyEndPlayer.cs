@@ -50,10 +50,10 @@ public class HappyEndPlayer : MonoBehaviour {
 
         // ドアを開ける（音だけ）
         // 同時にホワイトアウト
-        if ( timer > endTime && !fade.isEnd )
+        if ( timer > endTime && !fade.IsEnd() )
         {
-            fade.GetComponent<GUITexture>().texture = texture;
-            fade.isEnd = true;
+            //fade.GetComponent<GUITexture>().texture = texture;
+            fade.FadeOut();
             doorOpenAudio.Play();
         }
         // テスト用UI表示

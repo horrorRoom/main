@@ -1,10 +1,10 @@
-﻿/***********************************************************/
-//ステージの管理
-/***********************************************************/
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ステージの管理
+/// </summary>
 public class StageController : MonoBehaviour {
     [SerializeField]
     //現在のいるシーン
@@ -22,12 +22,10 @@ public class StageController : MonoBehaviour {
         save = GameObject.FindGameObjectWithTag("Save").GetComponent<Save>();
         //シーンを保存
         save.SetSceneName(sceneName);
+
+        //BGM
+        //SoundManager.GetInstance().BGMPlay("stageBgm", Sound.PlayerMode.LOOP);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     /// <summary>
     /// 次のシーン名

@@ -5,15 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour {
-
-    private static SoundManager singleInstance = null;
-    public static SoundManager GetInstance(){
-        if (singleInstance == null) singleInstance = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
-        return singleInstance;
-    }
-
-    class Sound
+namespace Sound
+{
+    class SoundData
     {
         /// <summary>
         /// 再生中の名前
@@ -32,7 +26,7 @@ public class SoundManager : MonoBehaviour {
     /// <summary>
     /// サウンドの再生方法
     /// </summary>
-    public enum SoundPlayerMode
+    public enum PlayerMode
     {
         LOOP, // ループして流す
         ONE_PLAY, // 一回流す
@@ -47,16 +41,25 @@ public class SoundManager : MonoBehaviour {
         FADE_IN,    //上がっていく
         FADE_OUT    //下がっていく
     }
+}
+
+public class SoundManager : MonoBehaviour {
+
+    private static SoundManager singleInstance = null;
+    public static SoundManager GetInstance(){
+        if (singleInstance == null) singleInstance = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        return singleInstance;
+    }
 
     /// <summary>
     /// 再生中のBGM
     /// </summary>
-    private List<Sound> bgmPlayList=new List<Sound> ();
+    private List<Sound.SoundData> bgmPlayList=new List<Sound.SoundData> ();
 
     /// <summary>
     /// 再生中のSE
     /// </summary>
-    private List<Sound> sePlayList = new List<Sound>();
+    private List<Sound.SoundData> sePlayList = new List<Sound.SoundData>();
 
     [Header("Object")]
     [SerializeField]
@@ -84,12 +87,11 @@ public class SoundManager : MonoBehaviour {
     /// <summary>
     /// BGMをセット、再生
     /// </summary>
-    public void BGMPlay(string name, SoundPlayerMode soundPlayerMode)
+    public void BGMPlay(string name, Sound.PlayerMode soundPlayerMode)
     {
         SoundResource soundResource = GetResource(name);
-
         //リソースがある場合
-        if (soundResource != null)
+        if (soundResource == null)
         {
             Debug.LogError("No Sound Resouce. name="+name);
             return;
@@ -108,7 +110,7 @@ public class SoundManager : MonoBehaviour {
                 }
 
                 //BGMセット
-                bgmPlayList.Add(new Sound()
+                bgmPlayList.Add(new Sound.SoundData()
                 {
                     soundName = name,
                     audio = soundObj
@@ -123,6 +125,11 @@ public class SoundManager : MonoBehaviour {
     public void SEPlay(string name)
     {
         SoundResource soundResource = GetResource(name);
+        if (soundResource==null)
+        {
+            Debug.LogError("No Sound Resouce. name=" + name);
+            return;
+        }
         
         //まだ作成されていない場合
         if (sePlayList.Count < MaxSE)
@@ -131,7 +138,7 @@ public class SoundManager : MonoBehaviour {
             AudioSource audio = obj.GetComponent<AudioSource>();
             audio.clip = soundResource.audioClip;
             //SEセット
-            sePlayList.Add(new Sound()
+            sePlayList.Add(new Sound.SoundData()
             {
                 soundName = name,
                 audio = audio

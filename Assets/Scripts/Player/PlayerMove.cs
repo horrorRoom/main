@@ -80,7 +80,7 @@ public class PlayerMove : MonoBehaviour
         if (Message.ErrorMessage(fade,"PlayerMove.cs\nFadeオブジェクトがnullです。")) return;
 
         //フェードアウトが完了していなかったら何もしない
-        if (fade.GetComponent<Fade>().isStart) return;
+        if (fade.GetComponent<Fade>().IsStart()) return;
 
         //通常の状態じゃないなら動かせない
         if (playState != (int)State.play)
