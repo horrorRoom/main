@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 /// <summary>
@@ -19,26 +20,40 @@ public class Fade : MonoBehaviour {
 
     private float time=0.0f;
 
-	void Update () {
+    //フェード終了時アクション
+    Action fadeEndAction=null;
+
+    //フェードインでアルファを減らしていく時間
+    const float FADE_IN_TIME= 0.2f;
+    //フェードインでアルファを減らす量
+    const float FADE_IN_ALPHA = 0.057f;
+
+    const float FADE_OUT_TIME = 0.5f;
+
+    /// <summary>
+    /// 更新
+    /// </summary>
+    void Update () {
         if (isStart)
         {
             time += 1.0f * Time.deltaTime;
-            if (time >= 0.2f)
+            if (time >= FADE_IN_TIME)
             {
-                this.fadeAlpha -= 0.057f;
+                this.fadeAlpha -= FADE_IN_ALPHA;
                 time = 0.0f;
             }
             if (this.fadeAlpha <= 0.0f)
             {
                 this.fadeAlpha = 0.0f;
                 isStart = false;
+                if (fadeEndAction != null) fadeEndAction();
             }
         }
 
         if (isEnd)
         {
             time += 1.0f * Time.deltaTime;
-            if (time >= 0.5f)
+            if (time >= FADE_OUT_TIME)
             {
                 this.fadeAlpha += 0.1f;
                 time = 0.0f;
@@ -47,6 +62,7 @@ public class Fade : MonoBehaviour {
             {
                 fadeAlpha = 1.0f;
                 isEnd = false;
+                if(fadeEndAction != null) fadeEndAction();
             }
         }
 
@@ -68,10 +84,16 @@ public class Fade : MonoBehaviour {
     /// <summary>
     /// フェードイン
     /// </summary>
-    public void FadeIn() { isStart=true; }
+    public void FadeIn(Action action = null) {
+        isStart =true;
+        fadeEndAction = action;
+    }
 
     /// <summary>
     /// フェードアウト
     /// </summary>
-    public void FadeOut() { isEnd = true; }
+    public void FadeOut(Action action=null) {
+        isEnd = true;
+        fadeEndAction = action;
+    }
 }

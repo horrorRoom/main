@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class OpenDoor : MonoBehaviour {
     [SerializeField]
     private Title titleController;
     [SerializeField]
-	private float endAngle;          //最終的に向けたいy軸アングル
-	[SerializeField]
-	private float endTime;           //何秒かけて閉じたいか
+    private float endAngle;          //最終的に向けたいy軸アングル
+    [SerializeField]
+    private float endTime;           //何秒かけて閉じたいか
 
-	private float startAngle;       //開始時のアングル（Scene上に配置した時点でのy軸アングル） 
-	public bool isOpen = false;   //ドアが閉じているか？
+    private float startAngle;       //開始時のアングル（Scene上に配置した時点でのy軸アングル） 
+    private bool isOpen = false;   //ドアが閉じているか？
 	private float timer = 0.0f;     //タイマー
 
 	[SerializeField]private int doorNum;
@@ -32,5 +33,10 @@ public class OpenDoor : MonoBehaviour {
 			if (timer >= 1.0f) isOpen = true;
 		}
 	}
+
+    /// <summary>
+    /// ドアが開いているかどうか返す
+    /// </summary>
+    public bool IsOpen() { return isOpen; }
 }
 

@@ -46,6 +46,24 @@ public class Title : MonoBehaviour {
     //レベル選択中
     [SerializeField] private bool levelSelect = false;
 
+    //最初に選択できるドアの数
+    private const int SELECT_DOOR_NUM = 3;
+
+    //最初に選択できるドアの種類
+    private enum FirstDoor
+    {
+        LevelSelect=1,
+        Exit = 2,
+        Option=3,
+    }
+
+    //最初に選択できるドアの種類
+    private enum LevelSelectDoor
+    {
+        FirstDoor = 2,
+        Wall = 3,
+    }
+
     /// <summary>
     /// 初期化
     /// </summary>
@@ -65,10 +83,11 @@ public class Title : MonoBehaviour {
         {
             //移動入力
             TitleInput();
-        }
 
-        if (!levelSelect) StartTitleMove();
-        else if (levelSelect) LevelSelectMove();
+            //もし移動先がドアならシーン移動
+            if (!levelSelect) StartTitleMove();
+            else if (levelSelect) LevelSelectMove();
+        }
     }
 
     /// <summary>
@@ -76,24 +95,24 @@ public class Title : MonoBehaviour {
     /// </summary>
 	void TitleInput()
     {
-        if (moveFlag != true)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                rotateCount++;
-                TitleRotate(0);
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                rotateCount--;
-                TitleRotate(0);
-            }
-        }
-        if (rotateCount > 3) rotateCount = 0;
-        if (rotateCount < 0) rotateCount = 3;
+        if (moveFlag) return;
 
-        if (levelSelect && rotateCount == 3) return;
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            rotateCount++;
+            TitleRotate(0);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            rotateCount--;
+            TitleRotate(0);
+        }
+        if (rotateCount > SELECT_DOOR_NUM) rotateCount = 0;
+        if (rotateCount < 0) rotateCount = SELECT_DOOR_NUM;
+
+        if (levelSelect && rotateCount == SELECT_DOOR_NUM) return;
         if (rotateCount == 1) return;
+        //移動(決定)
         if (Input.GetKeyDown(KeyCode.Space)) moveFlag = true;
     }
 
@@ -101,14 +120,15 @@ public class Title : MonoBehaviour {
     /// スタート地点での操作
     /// </summary>
     void StartTitleMove(){
-		if (moveFlag) {
-			if (rotateCount == 0) {
-				TitleMove(0, StartMovePoint, false);
-				levelSelect = true;
-			}
-			else if(rotateCount != 0)　STitleMoveCheck();
-		}
-	}
+        if (!moveFlag) return;
+
+        if (rotateCount == 0)
+        {
+            TitleMove(0, StartMovePoint, false);
+            levelSelect = true;
+        }
+        else if (rotateCount != 0) STitleMoveCheck();
+    }
 
     /// <summary>
     /// ドアがあるときのMove判定
@@ -116,20 +136,18 @@ public class Title : MonoBehaviour {
     void STitleMoveCheck(){
         if (StartDoorList[rotateCount - 1]==null) return;
         
-		if (StartDoorList [rotateCount - 1].GetComponent<OpenDoor> ().isOpen == true && moveFlag) {
-			TitleMove(0, StartMovePoint, true);
+		if (StartDoorList [rotateCount - 1].IsOpen()  && moveFlag) {
+			TitleMove(0, StartMovePoint, false);
 
-			fade.FadeOut();
-
-			//fadeし終えたらセーブしていたステージに移動する
-			if(!fade.IsEnd()){
-				if (rotateCount == 2) Application.Quit();
-                else if (rotateCount == 3) SceneManager.LoadScene("Option");
-                else if (rotateCount == 1) {
-					int stageNum = PlayerPrefs.GetInt("SceneNum", 1);
+			fade.FadeOut(()=> {
+                if (rotateCount == (int)FirstDoor.Exit) Application.Quit();
+                else if (rotateCount == (int)FirstDoor.Option) SceneManager.LoadScene("Option");
+                else if (rotateCount == (int)FirstDoor.LevelSelect)
+                {
+                    int stageNum = PlayerPrefs.GetInt("SceneNum", 1);
                     SceneManager.LoadScene("Stage" + stageNum);
-                } 
-			}
+                }
+            });
 		}
 	}
 
@@ -137,31 +155,32 @@ public class Title : MonoBehaviour {
     /// レベル選択
     /// </summary>
 	void LevelSelectMove(){
-		if (moveFlag) {
-			if (rotateCount == 2) {
-				TitleMove (0, LevelMovePoint, false);
-				levelSelect = false;
-			} else if (rotateCount != 2 && rotateCount != 3) {
-				LTitleMoveCheck();
-			}
-		}
-	}
+        if (!moveFlag) return;
+
+        if (rotateCount == (int)LevelSelectDoor.FirstDoor)
+        {
+            TitleMove(0, LevelMovePoint, false);
+            levelSelect = false;
+        }
+        else if (rotateCount != (int)LevelSelectDoor.FirstDoor && rotateCount != (int)LevelSelectDoor.Wall)
+        {
+            GameStageMove();
+        }
+    }
 
     /// <summary>
     /// そのままレベルのステージに行く
     /// </summary>
-	void LTitleMoveCheck(){
-		if (LevelDoorList [rotateCount].isOpen && moveFlag) {
+	void GameStageMove(){
+		if (LevelDoorList [rotateCount].IsOpen() && moveFlag) {
             SoundManager.GetInstance().SEPlay("putOpenDoor");
-            TitleMove(0, LevelMovePoint, true);
+            TitleMove(0, LevelMovePoint, false);
 
-			fade.FadeOut();
-
-			//fadeし終えたらセーブしていたステージに移動する
-			if(!fade.IsEnd()){
-				if (rotateCount == 0) SceneManager.LoadScene("Stage1");
-				else if (rotateCount == 1) SceneManager.LoadScene("Stage1");
-			}
+            fade.FadeOut(()=> {
+                //fadeし終えたらセーブしていたステージに移動する
+                if (rotateCount == 0) SceneManager.LoadScene("Stage1");
+                else if (rotateCount == 1) SceneManager.LoadScene("Stage1");
+            });
 		}
 	}
 
@@ -178,7 +197,7 @@ public class Title : MonoBehaviour {
     /// </summary>
     /// <param name="delay">移動に入るまでのラグタイム</param>
     /// <param name="obj">移動目標のGameObject配列</param>
-    /// <param name="flag">配列番号</param>
+    /// <param name="flag">移動フラグをどうするか</param>
     void TitleMove(float delay, GameObject[] obj, bool flag){
 		LeanTween.moveLocal(titlePlayer, obj[rotateCount].transform.position, moveDuration).setDelay(delay);
 		moveFlag = flag;
