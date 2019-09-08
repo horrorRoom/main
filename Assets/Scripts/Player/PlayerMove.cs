@@ -142,7 +142,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-                    transform.position += (transform.up *2.0f);
+            transform.position += (transform.up *2.0f);
             NockBack(transform.position - transform.forward * 3);
         }
     }

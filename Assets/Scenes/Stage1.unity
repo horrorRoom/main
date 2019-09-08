@@ -2772,7 +2772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &465579832
 Transform:
   m_ObjectHideFlags: 0
@@ -3841,7 +3841,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-4832
+  m_Name: pb_Mesh-62380
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -9162,7 +9162,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a5ce93ce0bd05994aa78ed84cc84247a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a5ce93ce0bd05994aa78ed84cc84247a, type: 2}
       propertyPath: m_LocalScale.z
